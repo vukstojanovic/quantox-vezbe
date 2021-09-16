@@ -1,0 +1,79 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    display: block;
+}
+
+.memory-container {
+    width: fit-content;
+    display: grid;
+    background-color: aqua;
+    margin: auto;
+    text-align: center;
+}
+
+.four {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.five {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.six {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.seven {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.eight {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.nine {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.ten {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.card {
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.cover {
+    width: 196px;
+    height: 196px;
+    background-color: aquamarine;
+}
+
+.hidden {
+    display: none;
+}
+
+.info {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.uvodnaPoruka {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.moves, .star-rating, .time {
+    padding-top: 10px;
+}
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igra memorije</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="memory-container">
+        <h1 class="uvodnaPoruka">Pritisnite Start da zapocnete igru.</h1>
+
+        <!-- <div class="card">
+            <div class="cover"></div>
+            <img src="./assets/images/1.png" alt="" class="hidden">
+        </div> -->
+        
+    </div>
+
+    <div class="info">
+        <label for="difficulty">Choose number of pairs: </label>
+        <select name="difficulty" id="difficulty">
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+            <option value="6">Six</option>
+            <option value="7">Seven</option>
+            <option value="8">Eight</option>
+            <option value="9">Nine</option>
+            <option value="10">Ten</option>
+        </select>
+    
+        <button id="btn">Start/Reset</button>
+    
+        <p class="moves">Number of moves: <span>0</span></p>
+        <p class="star-rating">Your star rating: <span>0</span></p>
+        <p class="time">Timer: It has passed <span class="minutes">0</span> minutes and <span class="seconds">0</span> seconds</p>
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
