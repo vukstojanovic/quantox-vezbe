@@ -14,6 +14,7 @@ h1 {
 h3 {
     font-size: 34px;
     padding-bottom: 25px;
+    line-height: 50px;
 }
 
 p {
@@ -66,7 +67,7 @@ main {
     background-color: #4D96A9;
     color: white;
     border: none;
-    padding: 20px 35px;
+    padding: 15px 35px;
     font-size: 18px;
     border-radius: 45px;
 }
@@ -84,7 +85,7 @@ main {
     background-color: #855fb1;
     color: white;
     border: none;
-    padding: 20px 35px;
+    padding: 15px 35px;
     font-size: 18px;
     border-radius: 45px;
 }
@@ -178,9 +179,11 @@ article {
 
 header, article, section {
     padding: 24px;
+    width: 100%;
 }
 
 section {
+    width: 100%;
     background-color: rgb(77, 150, 169);
     color: #fafafa;
     padding: 75px 20px;
@@ -211,6 +214,9 @@ section .bottom-background-tablet {
     display: none;
 }
 
+section .bottom-background-desktop {
+    display: none;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1439px) {
 
@@ -260,8 +266,37 @@ section .bottom-background-tablet {
 
 @media only screen and (min-width: 1440px) {
 
+    .logo {
+        padding: 80px 0px 61px 0px;
+    }
+
+    h1 {
+        font-size: 64px;
+        line-height: 65px;
+        width: 445px;
+        margin: auto;
+    }
+
+    h3 {
+        font-size: 44px;
+        width: 445px;
+        text-align: center;
+        padding-bottom: 32px;
+        margin: auto;
+    }
+
+    p {
+        padding-bottom: 32px;
+    }
+
     .avatars {
         display: none;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .left, .right {
@@ -269,19 +304,66 @@ section .bottom-background-tablet {
     }
 
     .left {
-        transform: translateX(40%);
+        transform: translateX(5%);
     }
 
     .right {
-        transform: translateX(-40%);
+        transform: translate(-5%, -15%);
     }
 
     .header-wrap {
         display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    header {
+        max-width: 540px;
+        padding: 0px;
     }
 
     aside {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+    }
+
+    aside img {
+        width: 255px;
+        height: 242px;
+        margin: 0 8px;
+    }
+
+    article {
+        padding: 0px;
+        padding-top: 80px;
+        width: 540px;
+    }
+
+    article p {
+        padding: 0px;
+    }
+
+    .overline {
+        letter-spacing: 4px;
+        padding-bottom: 16px;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    section button, section h3, section p {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+    }
+
+    section button {
+        text-align: center;
+        width: 193px;
     }
 
     section .bottom-background-desktop {
@@ -304,10 +386,16 @@ section .bottom-background-tablet {
         display: none;
     }
 
+    section p {
+        width: 350px;
+    }
+
+    .vertical-1 {
+        margin-top: 195px;
+        margin-bottom: 64px;
+    }
+
 }
-
-
-
 
 
 

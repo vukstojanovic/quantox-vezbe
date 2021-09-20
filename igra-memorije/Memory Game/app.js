@@ -13,8 +13,6 @@ let movesVar = 0;
 let numberOfClicks = 0;
 let prviPokrivac;
 let prvaSlika;
-let drugiPokrivac;
-let drugaSlika;
 let otkucavanje;
 
 // 2. event listeneri
