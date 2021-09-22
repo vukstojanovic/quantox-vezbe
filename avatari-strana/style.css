@@ -6,75 +6,124 @@
     font-family: 'Red Hat Display', sans-serif;
 }
 
+:root {
+    --whiteish: #fafafa;
+    --greyish: #87879d;
+    --greenish: #4D96A9;
+    --greenish-hover: #71C0D4;
+    --blueish: #bfe3f9;
+    --purpleish: #855fb1;
+    --purpleish-hover: #B18BDD;
+    --pinkish: #d9b8ff;
+    --ring-border: #cfcfd4;
+
+}
+
 body {
-    background-color: #fafafa;
+    background-color: var(--whiteish);
 }
 
 h1 {
     font-size: 40px;
     line-height: 44px;
-    padding-bottom: 24px;
 }
 
 h3 {
     font-size: 34px;
-    padding-bottom: 25px;
+    margin-bottom: 25px;
     line-height: 36px;
+    font-weight: 900;
 }
 
 p {
     font-size: 16px;
     line-height: 26px;
-    padding-bottom: 32px;
-    color: #87879d;
+    margin-bottom: 32px;
+    color: var(--greyish);
 }
 
 button {
     cursor: pointer;
+    font-weight: 900;
+    font-size: 16px;
+    padding-top: 16px;
 }
 
 main {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .logo {
     padding: 48px 0px 54px 0px;
 }
 
-.avatars {
+/* .avatars {
     height: 153px;
     width: 100%;
-    /* margin: auto; */
+    margin: auto;
     display: flex;
     justify-content: center;
     overflow: hidden;
     margin-bottom: 48px;
+} */
+
+/* rucno podesavanje avatara */
+
+.mobile-avatars {
+    display: flex;
+    justify-content: center;
+    height: 153px;
+    margin: auto;
+    overflow: hidden;
+    margin-bottom: 48px;
+    overflow: hidden;
 }
+
+.mobile-avatars img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+}
+
+.mobile-avatars .avatar-pair {
+    margin: 0px 8px;
+}
+
+.mobile-avatars .avatar-pair:nth-child(odd) {
+    align-self: flex-end;
+}
+
+.mobile-avatars .avatar-pair div:first-child {
+    padding-bottom: 14px;
+}
+
+.tablet-avatars {
+    display: none;
+}
+
+/* ende */
 
 .left, .right {
     display: none;
 }
 
 header h1 {
-    width: 327px;
+    width: 280px;
     margin: auto;
+    margin-bottom: 24px;
 }
 
 header p {
     width: 327px;
     margin: auto;
+    margin-bottom: 32px;
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: 900;
 }
 
 .buttons button {
@@ -83,25 +132,26 @@ header p {
 }
 
 .btn-1 {
-    background-color: #4D96A9;
+    background-color: var(--greenish);
     color: white;
     border: none;
-    padding: 15px 35px;
+    padding: 16px 35px;
+    margin-bottom: 16px;
     font-size: 18px;
     border-radius: 45px;
 }
 
 .btn-1:hover {
-    background-color: #71C0D4;
+    background-color: var(--greenish-hover);
 }
 
 
 .btn-1 span {
-    color: #bfe3f9;
+    color: var(--blueish);
 }
 
 .btn-2 {
-    background-color: #855fb1;
+    background-color: var(--purpleish);
     color: white;
     border: none;
     padding: 15px 35px;
@@ -110,11 +160,11 @@ header p {
 }
 
 .btn-2 span {
-    color: #d9b8ff;
+    color: var(--pinkish);
 }
 
 .btn-2:hover {
-    background-color: #B18BDD;
+    background-color: var(--purpleish-hover);
 }
 
 p {
@@ -122,7 +172,7 @@ p {
 }
 
 .vertical-1{
-    margin: 165px 0px 80px 0px;
+    margin: 165px 0px 64px 0px;
     position: relative;
 }
 
@@ -136,38 +186,38 @@ p {
 .vertical-1 .ring {
     padding: 15px;
     width: 56px;
-    border: 1px solid #cfcfd4;
-    color: #87879d;
+    border: 1px solid var(--ring-border);
+    color: var(--greyish);
     border-radius: 50%;
     margin: auto;
     font-weight: bold;
-    background-color: #fafafa;
+    background-color: var(--whiteish);
 }
 
 .vertical-1 .line {
     position: absolute;
     top: -158%;
     left: 50%;
-    border-left: 1px solid #cfcfd4;
+    border-left: 1px solid var(--ring-border);
     height: 85px;
 }
 
 .vertical-2 .ring {
     padding: 15px;
     width: 56px;
-    border: 1px solid #cfcfd4;
-    color: #87879d;
+    border: 1px solid var(--ring-border);
+    color: var(--greyish);
     border-radius: 50%;
     margin: auto;
     font-weight: bold;
-    background-color: #fafafa;
+    background-color: var(--whiteish);
 }
 
 .vertical-2 .line {
     position: absolute;
     top: -158%;
     left: 50%;
-    border-left: 1px solid #cfcfd4;
+    border-left: 1px solid var(--ring-border);
     height: 85px;
 }
 
@@ -185,13 +235,10 @@ aside img {
     border-radius: 8px;
 }
 
-article {
-    padding-top: 50px;
-}
-
 article h3 {
     width: 327px;
     margin: auto;
+    margin-bottom: 32px;
 }
 
 article p {
@@ -200,39 +247,38 @@ article p {
 }
 
 .overline {
-    color: #4D96A9;
+    color: var(--greenish);
     font-weight: 900;
     letter-spacing: 2px;
-    padding-bottom: 24px;
-    padding-top: 64px;
+    margin-bottom: 24px;
+    margin-top: 64px;
+    padding: 0px;
 }
 
 header, article, section {
-    padding: 24px;
+    /* padding: 24px; */
     /* width: 100%; */
 }
 
 section {
     width: 100%;
-    background-color: rgb(77, 150, 169);
-    color: #fafafa;
-    padding: 75px 20px;
+    background-color: var(--greenish);
+    color: var(--whiteish);
+    padding: 80px 20px;
     position: relative;
 }
 
 section h3 {
     width: 327px;
     margin: auto;
+    margin-bottom: 25px;
 }
 
 section p {
-    color: #fafafa;
+    color: var(--whiteish);
     width: 327px;
     margin: auto;
-}
-
-section button {
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 section h3, section p, section button {
@@ -265,16 +311,42 @@ section .bottom-background-desktop {
         padding: 48px 0px 64px 0px;
     }
 
-    .avatars {
+    /* .avatars {
         width: 820px;
         height: 303px;
+        margin: auto;
+        margin-bottom: 72px;
+    } */
+
+    .mobile-avatars {
+        display: none;
     }
 
-    h1 {
-        font-size: 48px;
-        line-height: 48px;
-        width: 339px;
+    .tablet-avatars {
+        display: flex;
+        justify-content: center;
+        height: 303px;
         margin: auto;
+        overflow: hidden;
+        margin-bottom: 72px;
+    }
+    
+    .tablet-avatars img {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+    }
+
+    .tablet-avatars .avatar-pair {
+        margin: 0px 15px;
+    }    
+    
+    .tablet-avatars .avatar-pair:nth-child(odd) {
+        align-self: flex-end;
+    }
+    
+    .tablet-avatars .avatar-pair div:first-child {
+        padding-bottom: 28px;
     }
 
     h3 {
@@ -282,13 +354,21 @@ section .bottom-background-desktop {
         line-height: 44px;
         width: 445px;
         text-align: center;
-        padding-bottom: 32px;
         margin: auto;
+    }
+
+    header h1 {
+        font-size: 48px;
+        line-height: 48px;
+        width: 339px;
+        margin: auto;
+        margin-bottom: 24px;
     }
 
     header p {
         width: 457px;
         margin: auto;
+        margin-bottom: 32px;
     }
 
     .buttons {
@@ -300,6 +380,7 @@ section .bottom-background-desktop {
     article h3 {
         width: 580px;
         margin: auto;
+        margin-bottom: 32px;
     }
 
     article p {
@@ -319,19 +400,16 @@ section .bottom-background-desktop {
     }
 
     .overline {
-        padding-top: 48px;
-        padding-bottom: 16px;
-    }
-
-    header, article, section {
-        padding-left: 97px;
-        padding-right: 97px;
+        margin-top: 48px;
+        margin-bottom: 16px;
+        padding: 0px;
     }
 
     section p {
         width: 573px;
         margin: auto;
-        color: #fafafa;
+        margin-bottom: 40px;
+        color: var(--whiteish);
     }
 
     section .bottom-background-mobile {
@@ -379,11 +457,20 @@ section .bottom-background-desktop {
         padding-bottom: 32px;
     }
 
-    header h1, header p {
-        width: auto;
+    header h1 {
+        width: 450px;
+    } 
+
+    header p {
+        width: 540px;
+        padding-bottom: 0px;
     }
 
-    .avatars {
+    /* .avatars {
+        display: none;
+    } */
+
+    .mobile-avatars, .tablet-avatars {
         display: none;
     }
 
@@ -393,16 +480,69 @@ section .bottom-background-desktop {
         justify-content: center;
     }
 
-    .left, .right {
+    /* .left, .right {
         display: block;
-    }
+    } */
+
+    /* rucno podesavanje avatara */
 
     .left {
-        transform: translateX(8%);
+        display: flex;
+        justify-content: center;
+        height: 303px;
+    }
+    
+    .left .avatar-pair {
+        margin: 0px 15px;
+    }
+    
+    .left img {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+    }
+    
+    .left .avatar-pair:nth-child(odd) {
+        align-self: flex-end;
+    }
+    
+    .left .avatar-pair div:first-child {
+        padding-bottom: 28px;
+    }
+    
+    
+    .right {
+        display: flex;
+        justify-content: center;
+        height: 303px;
+    }
+    
+    .right .avatar-pair {
+        margin: 0px 15px;
+    }
+    
+    .right img {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+    }
+    
+    .right .avatar-pair:nth-child(even) {
+        align-self: flex-end;
+    }
+    
+    .right .avatar-pair div:first-child {
+        padding-bottom: 28px;
+    }
+    
+    /* ende */
+
+    .left {
+        transform: translate(-8%, -12%);
     }
 
     .right {
-        transform: translate(-8%, -15%);
+        transform: translateX(8%);
     }
 
     .header-wrap {
@@ -429,8 +569,8 @@ section .bottom-background-desktop {
 
     article {
         padding: 0px;
-        padding-top: 80px;
         width: 540px;
+        margin: auto;
     }
 
     article h3 {
@@ -445,8 +585,9 @@ section .bottom-background-desktop {
 
     .overline {
         letter-spacing: 4px;
-        padding-top: 80px;
-        padding-bottom: 16px;
+        margin-top: 80px;
+        margin-bottom: 16px;
+        padding: 0px;
     }
 
     section {
@@ -457,7 +598,7 @@ section .bottom-background-desktop {
     }
 
     section p {
-        color: #fafafa;
+        color: var(--whiteish);
     }
 
     section button, section h3, section p {
@@ -468,7 +609,7 @@ section .bottom-background-desktop {
 
     section button {
         text-align: center;
-        width: 193px;
+        font-size: 16px;
     }
 
     section .bottom-background-desktop {
