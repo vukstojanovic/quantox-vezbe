@@ -17,28 +17,30 @@
 }
 
 body {
-    background-color: var(--soft-violet);
+    background: linear-gradient(var(--soft-violet), var(--soft-blue));;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 
 main {
     width: 327px;
-    /* margin: auto; */
-    /* background-color: var(--light-greyish-blue); */
     background-color: #fff;
     padding: 24px;
-    padding-bottom: 30px;
     border-radius: 25px;
     position: relative;
 }
 
-main h1 {
+section {
+    padding-bottom: 28px;
+}
+
+section h1 {
     text-align: center;
-    /* padding-top: 132px; */
+    font-size: 32px;
     padding-bottom: 38px;
     margin-top: -20%;
 }
@@ -61,14 +63,21 @@ article {
     transform: translateY(-50%) rotate(180deg);
 }
 
+hr {
+    border: 1px solid var(--light-greyish-blue);
+}
+
 .answer {
     padding-right: 15px;
     padding-bottom: 10px;
     line-height: 18px;
+    opacity: 1;
+    transition: all 1s ease-in-out;
 }
 
 .hidden .answer {
     display: none;
+    opacity: 0;
 }
 
 .hidden .question img {
@@ -83,18 +92,85 @@ article {
     font-weight: 700;
 }
 
-span:hover {
+.question:hover {
     color: var(--soft-red);
     cursor: pointer;
 }
 
-.img-container {
-    /* position: absolute;
-    top: -22%;
-    left: 6%; */
+.img-container-mobile {
     margin-top: -48%;
+}
+
+.woman-d, .shadow-d, .box-d {
+    display: none;
 }
 
 .shadow {
     transform: translate(12%, -85%);
 }
+
+@media only screen and (min-width: 1440px) {
+
+    .woman-d, .shadow-d, .box-d {
+        display: block;
+    }
+
+    .img-container-mobile {
+        display: none;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    main {
+        display: flex;
+        width: 920px;
+        min-height: 510px;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px;
+        overflow: hidden;
+    }
+
+    section {
+        padding-bottom: 0px;
+    }
+
+    section h1 {
+        text-align: left;
+        padding-bottom: 18px;
+        margin: 0;
+    }
+
+    article {
+        font-size: 14px;
+    }
+
+    .woman-d {
+        margin-left: -20%;
+        margin-top: -3%;
+        position: relative;
+    }
+
+    .shadow-d {
+        position: absolute;
+        top: -60%;
+        left: -63%;
+    }
+
+    .box-d {
+        position: absolute;
+        top: 38%;
+        left: -10%;
+        z-index: 4;
+    }
+
+}
+
+
+
+
+
+
+
