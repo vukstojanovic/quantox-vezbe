@@ -150,6 +150,7 @@ hr {
     .woman-d {
         margin-left: -20%;
         margin-top: -3%;
+        z-index: 3;
         position: relative;
     }
 
