@@ -72,13 +72,14 @@ hr {
     padding-right: 15px;
     padding-bottom: 10px;
     line-height: 18px;
-    opacity: 1;
-    transition: all 1s ease-in-out;
+    transition: all 0.2s ease-in;
 }
 
 .hidden .answer {
-    display: none;
-    opacity: 0;
+    /* display: none; */
+    height: 0px;
+    padding: 0px;
+    overflow: hidden;
 }
 
 .hidden .question img {
