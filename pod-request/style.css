@@ -223,6 +223,7 @@ section .icons img:nth-child(4) {
     }
 
     #form-tablet input {
+        width: 260px;
         border-radius: 20px;
         background-color: var(--light-black);
         color: var(--light-grey);
@@ -361,6 +362,7 @@ section .icons img:nth-child(4) {
     }
 
     #form-tablet input {
+        width: 260px;
         border-radius: 20px;
         background-color: var(--light-black);
         color: var(--light-grey);
