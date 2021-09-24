@@ -16,8 +16,8 @@
 }
 
 main {
-    background: linear-gradient(rgb(18, 23, 37, 0.8), rgb(18, 23, 37, 0.8)), url("./assets/mobile/image-host.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(rgb(18, 23, 37, 0.9), rgb(18, 23, 37, 0.9)), url("./assets/mobile/image-host.jpg") no-repeat center center;
+    /* background-size: cover; */
     color: white;
     text-align: center;
     overflow: auto;
