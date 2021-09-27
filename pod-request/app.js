@@ -7,7 +7,11 @@ const $emailTablet = document.getElementById('email-tablet');
 const $warningTablet = document.getElementById('warning-tablet');
 const $formTablet = document.getElementById('form-tablet');
 
+<<<<<<< HEAD
 $formMobile.addEventListener("submit", (e) => {
+=======
+$form.addEventListener("submit", (e) => {
+>>>>>>> a5e337aa1c781fc3aaa3cd3c3270e31316dab02b
 
     e.preventDefault();
 
@@ -28,6 +32,7 @@ $formTablet.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+<<<<<<< HEAD
 
     if (!$emailTablet.value) {
         $warningTablet.innerHTML = "Oops! Please add your email";
@@ -50,7 +55,17 @@ document.body.addEventListener('click', (e) => {
 
 
 
+=======
+>>>>>>> a5e337aa1c781fc3aaa3cd3c3270e31316dab02b
 
+    if (!$emailTablet.value) {
+        $warningTablet.innerHTML = "Oops! Please add your email";
+    } else if (!$emailTablet.value.match(pattern)) {
+        $warningTablet.innerHTML = "Oops! Please check your email";
+    } else {
+        $warningTablet.innerHTML = "&nbsp;";
+    }
+});
 
 
 
