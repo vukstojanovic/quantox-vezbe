@@ -19,11 +19,8 @@
 
 main {
     background: linear-gradient(rgb(18, 23, 37, 0.9), rgb(18, 23, 37, 0.9)), url("./assets/mobile/image-host.jpg") no-repeat center center;
-<<<<<<< HEAD
     background-size: cover;
-=======
     /* background-size: cover; */
->>>>>>> a5e337aa1c781fc3aaa3cd3c3270e31316dab02b
     color: white;
     text-align: center;
     overflow: auto;
@@ -115,13 +112,11 @@ section .icons img:nth-child(4) {
     margin-bottom: 94px;
 }
 
-<<<<<<< HEAD
+
 #form-mobile button:hover {
     background-color: var(--green-hover);
 }
 
-=======
->>>>>>> a5e337aa1c781fc3aaa3cd3c3270e31316dab02b
 #warning-mobile {
     margin-top: 2px;
     margin-bottom: 0px;
@@ -229,11 +224,7 @@ section .icons img:nth-child(4) {
         margin-bottom: 42px;
         padding-left: 32px;
         font-size: 12px;
-<<<<<<< HEAD
         color: var(--red);
-=======
-        color: red;
->>>>>>> a5e337aa1c781fc3aaa3cd3c3270e31316dab02b
         font-weight: bold;
     }
 
