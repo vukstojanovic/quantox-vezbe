@@ -341,7 +341,7 @@ section .icons img:nth-child(4) {
         height: 26px;
     }
 
-    #form-mobile {
+    .form-m {
         display: none;
     }
 
