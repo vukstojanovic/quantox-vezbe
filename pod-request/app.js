@@ -1,22 +1,53 @@
 
-const $email = document.getElementById('email-mobile');
-const $warning = document.getElementById('warning-mobile');
-const $form = document.getElementById('form-mobile');
+const $emailMobile = document.getElementById('email-mobile');
+const $warningMobile = document.getElementById('warning-mobile');
+const $formMobile = document.getElementById('form-mobile');
 
-$form.addEventListener("submit", (e) => {
+const $emailTablet = document.getElementById('email-tablet');
+const $warningTablet = document.getElementById('warning-tablet');
+const $formTablet = document.getElementById('form-tablet');
+
+$formMobile.addEventListener("submit", (e) => {
 
     e.preventDefault();
 
     let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-    if (!$email.value) {
-        $warning.innerHTML = "Oops! Please add your email";
-    } else if (!$email.value.match(pattern)) {
-        $warning.innerHTML = "Oops! Please check your email";
+    if (!$emailMobile.value) {
+        $warningMobile.innerHTML = "Oops! Please add your email";
+    } else if (!$emailMobile.value.match(pattern)) {
+        $warningMobile.innerHTML = "Oops! Please check your email";
     } else {
-        $warning.innerHTML = "&nbsp;";
+        $warningMobile.innerHTML = "&nbsp;";
     }
 });
+
+
+$formTablet.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!$emailTablet.value) {
+        $warningTablet.innerHTML = "Oops! Please add your email";
+    } else if (!$emailTablet.value.match(pattern)) {
+        $warningTablet.innerHTML = "Oops! Please check your email";
+    } else {
+        $warningTablet.innerHTML = "&nbsp;";
+    }
+});
+
+document.body.addEventListener('click', (e) => {
+    console.log(e.target);
+    if (!(e.target === $emailTablet)) {
+        $warningTablet.innerHTML = "&nbsp;";
+    }
+    
+});
+
+
+
 
 
 

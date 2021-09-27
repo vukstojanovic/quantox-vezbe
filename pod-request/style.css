@@ -8,33 +8,36 @@
 
 :root {
     --green: #54e6af;
+    --green-hover: #b3ffe2;
     --light-black: #2c344b;
     --black: #121725;
     --white: #ffffff;
     --grey: #5a668a;
     --light-grey: #c2cbe5;
+    --red: #FB3E3E;
 }
 
 main {
-    background: linear-gradient(rgb(18, 23, 37, 0.8), rgb(18, 23, 37, 0.8)), url("./assets/mobile/image-host.jpg") no-repeat center center fixed;
+    background: linear-gradient(rgb(18, 23, 37, 0.9), rgb(18, 23, 37, 0.9)), url("./assets/mobile/image-host.jpg") no-repeat center center;
     background-size: cover;
     color: white;
     text-align: center;
     overflow: auto;
+    min-height: 100vh;
 }
 
 .logo {
-    /* width: 135px;
-    margin: auto; */
+    width: 135px;
+    margin: auto;
     margin-top: 62px;
     margin-bottom: 57px;
 }
 
 section {
-    /* width: 327px;
-    margin: auto; */
-    margin-left: 24px;
-    margin-right: 24px;
+    width: 327px;
+    margin: auto;
+    /* margin-left: 24px;
+    margin-right: 24px; */
 }
 
 section h1 {
@@ -54,6 +57,7 @@ section p {
     line-height: 25px;
     font-size: 15px;
     color: var(--light-grey);
+    font-weight: 300;
 }
 
 section .icons {
@@ -82,7 +86,7 @@ section .icons img:nth-child(4) {
     padding-top: 12px;
     padding-bottom: 12px;
     border-radius: 20px;
-    background-color: var(--grey);
+    background-color: var(--light-black);
     color: var(--light-grey);
     font-weight: bold;
     border: none;
@@ -107,14 +111,22 @@ section .icons img:nth-child(4) {
     margin-bottom: 94px;
 }
 
-#warning {
+#form-mobile button:hover {
+    background-color: var(--green-hover);
+}
+
+#warning-mobile {
     margin-top: 2px;
     margin-bottom: 0px;
     margin-left: 32px;
     font-weight: bold;
-    color: red;
+    color: var(--red);
     text-align: left;
     font-size: 11px;
+}
+
+#warning-tablet {
+    display: none;
 }
 
 #form-tablet {
@@ -133,7 +145,7 @@ section .icons img:nth-child(4) {
     display: none;
 }
 
-@media only screen and (min-width: 738px) and (max-width: 1439px) {
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
 
     main {
         background: var(--black);
@@ -149,7 +161,8 @@ section .icons img:nth-child(4) {
 
     section {
         margin-left: 39px;
-        margin-right: 94px;
+        /* margin-right: 94px; */
+        width: 635px;
         position: relative;
         background-color: var(--black);
         z-index: 2;
@@ -164,7 +177,8 @@ section .icons img:nth-child(4) {
     }
 
     section p {
-        margin-right: 190px;
+        /* margin-right: 190px; */
+        width: 445px;
         margin-bottom: 40px;
         line-height: 28px;
         font-size: 18px;
@@ -188,10 +202,10 @@ section .icons img:nth-child(4) {
     }
 
     .email-container {
-        margin-bottom: 64px;
+        /* margin-bottom: 64px; */
         margin-right: 208px;
         border-radius: 25px;
-        background-color: var(--grey);
+        background-color: var(--light-black);
         color: var(--light-grey);
         font-weight: bold;
         border: none;
@@ -202,13 +216,24 @@ section .icons img:nth-child(4) {
         justify-content: space-between;
     }
 
+    #warning-tablet {
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 42px;
+        padding-left: 32px;
+        font-size: 12px;
+        color: var(--red);
+        font-weight: bold;
+    }
+
     #form-tablet {
         display: block;
     }
 
     #form-tablet input {
+        width: 260px;
         border-radius: 20px;
-        background-color: var(--grey);
+        background-color: var(--light-black);
         color: var(--light-grey);
         font-weight: bold;
         border: none;
@@ -232,9 +257,14 @@ section .icons img:nth-child(4) {
         cursor: pointer;
     }
 
+    #form-tablet button:hover {
+        background-color: var(--green-hover);
+    }
+
     section .icons {
         margin-bottom: 153px;
-        margin-right: 99px;
+        width: 536px;
+        /* margin-right: 99px; */
     }
 
     .dots {
@@ -274,7 +304,8 @@ section .icons img:nth-child(4) {
 
     section {
         margin-left: 165px;
-        margin-right: 552px;
+        /* margin-right: 552px; */
+        width: 723px;
         position: relative;
         background-color: var(--black);
         z-index: 2;
@@ -289,7 +320,8 @@ section .icons img:nth-child(4) {
     }
 
     section p {
-        margin-right: 190px;
+        /* margin-right: 190px; */
+        width: 445px;
         margin-bottom: 40px;
         line-height: 28px;
         font-size: 18px;
@@ -312,10 +344,11 @@ section .icons img:nth-child(4) {
     }
 
     .email-container {
-        margin-bottom: 64px;
-        margin-right: 208px;
+        /* margin-bottom: 60px; */
+        /* margin-right: 208px; */
+        width: 427px;
         border-radius: 25px;
-        background-color: var(--grey);
+        background-color: var(--light-black);
         color: var(--light-grey);
         font-weight: bold;
         border: none;
@@ -326,13 +359,24 @@ section .icons img:nth-child(4) {
         justify-content: space-between;
     }
 
+    #warning-tablet {
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 42px;
+        padding-left: 32px;
+        font-size: 12px;
+        color: red;
+        font-weight: bold;
+    }
+
     #form-tablet {
         display: block;
     }
 
     #form-tablet input {
+        width: 260px;
         border-radius: 20px;
-        background-color: var(--grey);
+        background-color: var(--light-black);
         color: var(--light-grey);
         font-weight: bold;
         border: none;
@@ -354,6 +398,10 @@ section .icons img:nth-child(4) {
         border-radius: 25px;
         border: none;
         cursor: pointer;
+    }
+
+    #form-tablet button:hover {
+        background-color: var(--green-hover);
     }
 
     section .icons {
@@ -391,6 +439,8 @@ section .icons img:nth-child(4) {
     }
 
 }
+
+
 
 
 
