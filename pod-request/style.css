@@ -80,7 +80,7 @@ section .icons img:nth-child(4) {
     height: 15px;
 }
 
-#form-mobile input {
+.form-m input {
     display: block;
     width: 100%;
     padding-left: 32px;
@@ -94,11 +94,11 @@ section .icons img:nth-child(4) {
     font-size: 14px;
 }
 
-#form-mobile input::placeholder {
+.form-m input::placeholder {
     color: var(--light-grey);
 }
 
-#form-mobile button {
+.form-m button {
     display: block;
     width: 100%;
     text-align: center;
@@ -113,11 +113,11 @@ section .icons img:nth-child(4) {
 }
 
 
-#form-mobile button:hover {
+.form-m button:hover {
     background-color: var(--green-hover);
 }
 
-#warning-mobile {
+.warning-m {
     margin-top: 2px;
     margin-bottom: 0px;
     margin-left: 32px;
@@ -127,11 +127,11 @@ section .icons img:nth-child(4) {
     font-size: 11px;
 }
 
-#warning-tablet {
+.warning-t {
     display: none;
 }
 
-#form-tablet {
+.form-t {
     display: none;
 }
 
@@ -199,7 +199,7 @@ section .icons img:nth-child(4) {
         height: 26px;
     }
 
-    #form-mobile {
+    .form-m {
         display: none;
     }
 
@@ -218,7 +218,7 @@ section .icons img:nth-child(4) {
         justify-content: space-between;
     }
 
-    #warning-tablet {
+    .warning-t {
         display: block;
         margin-top: 8px;
         margin-bottom: 42px;
@@ -228,11 +228,11 @@ section .icons img:nth-child(4) {
         font-weight: bold;
     }
 
-    #form-tablet {
+    .form-t {
         display: block;
     }
 
-    #form-tablet input {
+    .form-t input {
         width: 260px;
         border-radius: 20px;
         background-color: var(--light-black);
@@ -245,11 +245,11 @@ section .icons img:nth-child(4) {
         outline: none;
     }
 
-    #form-tablet input::placeholder {
+    .form-t input::placeholder {
         color: var(--light-grey);
     }
 
-    #form-tablet button {
+    .form-t button {
         padding: 10px 27px;
         font-weight: bold;
         color: var(--black);
@@ -259,7 +259,7 @@ section .icons img:nth-child(4) {
         cursor: pointer;
     }
 
-    #form-tablet button:hover {
+    .form-t button:hover {
         background-color: var(--green-hover);
     }
 
@@ -361,7 +361,7 @@ section .icons img:nth-child(4) {
         justify-content: space-between;
     }
 
-    #warning-tablet {
+   .warning-t {
         display: block;
         margin-top: 8px;
         margin-bottom: 42px;
@@ -371,11 +371,11 @@ section .icons img:nth-child(4) {
         font-weight: bold;
     }
 
-    #form-tablet {
+    .form-t {
         display: block;
     }
 
-    #form-tablet input {
+    .form-t input {
         width: 260px;
         border-radius: 20px;
         background-color: var(--light-black);
@@ -388,11 +388,11 @@ section .icons img:nth-child(4) {
         outline: none;
     }
 
-    #form-tablet input::placeholder {
+    .form-t input::placeholder {
         color: var(--light-grey);
     }
 
-    #form-tablet button {
+    .form-t button {
         padding: 10px 27px;
         font-weight: bold;
         color: var(--black);
@@ -402,7 +402,7 @@ section .icons img:nth-child(4) {
         cursor: pointer;
     }
 
-    #form-tablet button:hover {
+    .form-t button:hover {
         background-color: var(--green-hover);
     }
 

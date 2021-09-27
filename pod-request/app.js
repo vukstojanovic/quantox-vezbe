@@ -39,10 +39,12 @@ $formTablet.addEventListener("submit", (e) => {
     } else {
         $warningTablet.innerHTML = "&nbsp;";
     }
-    
+
 });
 
-
+document.body.addEventListener("click", (e) => {
+    console.dir(e.target);
+})
 
 
 
