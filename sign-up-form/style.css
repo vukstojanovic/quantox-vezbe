@@ -81,6 +81,11 @@ form input {
     padding-left: 19px;
     border-radius: 5px;
     border: 1px solid var(--grey);
+    outline: none;
+}
+
+form input:focus {
+    border: 1px solid var(--purple);
 }
 
 form button {
@@ -139,6 +144,10 @@ form button {
     border: 2px solid var(--orange);
     outline-color: var(--orange);
     color: var(--orange);
+}
+
+.js-error input:focus {
+    border: 2px solid var(--orange);
 }
 
 .js-error input::placeholder {
