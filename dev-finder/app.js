@@ -27,6 +27,7 @@ const defaultUrl = "https://api.github.com/users/:username";
 
 // event listeners
 
+
 displayProfile("octocat");
 
 $btn.addEventListener("click", () => {
