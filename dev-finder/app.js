@@ -2,7 +2,6 @@
 
 const $day = document.getElementById("js-day");
 const $night = document.getElementById("js-night");
-// const lightDark = document.querySelectorAll(".modes div img");
 const $inputContainer = document.querySelector(".input-container");
 const $input = document.querySelector(".input-container input");
 const $section = document.querySelector("section");
@@ -21,6 +20,7 @@ const $location = document.querySelectorAll(".link:nth-child(1) p")[0];
 const $blog = document.querySelectorAll(".link:nth-child(2) p")[0];
 const $twitter = document.querySelectorAll(".link:nth-child(3) p")[0];
 const $company = document.querySelectorAll(".link:nth-child(4) p")[0];
+const $error = document.querySelector(".input-container span");
 
 
 const defaultUrl = "https://api.github.com/users/:username";
@@ -30,12 +30,21 @@ const defaultUrl = "https://api.github.com/users/:username";
 displayProfile("octocat");
 
 $btn.addEventListener("click", () => {
-    displayProfile("vukstojanovic");
+    if (!$input.value) {
+        return
+    }
+
+    displayProfile($input.value);
 });
 
 $day.addEventListener("click", switchModes);
 
 $night.addEventListener("click", switchModes);
+
+$input.addEventListener("keydown", () => {
+    $error.textContent = "";
+    $input.placeholder = "Search GitHub username";
+});
 
 // functions
 
@@ -54,6 +63,12 @@ function displayProfile(name) {
     const promise = fetchData(newUrl);
     promise.then(result => {
         console.log(result);
+        if (!result.login) {
+            $error.textContent = "No results";
+            $input.placeholder = "";
+            return
+        }
+
         $name.textContent = result.name ? result.name : result.login;
         $profileImage.src = result.avatar_url;
         $username.textContent = "@" + result.login;
@@ -62,10 +77,49 @@ function displayProfile(name) {
         $repos.textContent = result.public_repos;
         $followers.textContent = result.followers;
         $following.textContent = result.following;
-        $location.textContent = result.location ? result.location : "Not available";
-        $blog.textContent = result.blog ? result.blog : "Not available";
-        $twitter.textContent = result.twitter_username ? result.twitter_username : "Not available";
-        $company.textContent = result.company ? result.company : "Not available";
+        $error.textContent = "";
+        $input.placeholder = "Search GitHub username";
+
+        console.log(result.location);
+
+        if (result.location) {
+            $location.textContent = result.location;
+            $location.parentElement.parentElement.classList.remove("js-not-available");
+        } else {
+            $location.textContent = "Not available";
+            $location.parentElement.parentElement.classList.add("js-not-available");
+        }
+
+        if (result.blog) {
+            $blog.textContent = result.blog;
+            $blog.parentElement.href = result.blog.includes('https://') ? result.blog : `https://${result.blog}`;
+            $blog.parentElement.parentElement.classList.remove("js-not-available");
+        } else {
+            $blog.textContent = "Not available";
+            $blog.parentElement.parentElement.classList.add("js-not-available");
+        }
+
+        if (result.twitter_username) {
+            $twitter.textContent = result.twitter_username;
+            $twitter.parentElement.href = `https://twitter.com/${result.twitter_username}`;
+            $twitter.parentElement.parentElement.classList.remove("js-not-available");
+        } else {
+            $twitter.textContent = "Not available";
+            $twitter.parentElement.href = "#";
+            $twitter.parentElement.parentElement.classList.add("js-not-available");
+        }
+
+        if (result.company) {
+            $company.textContent = result.company;
+            const withoutPrefix = result.company[0] === "@" ? result.company.slice(1) : result.company;
+            console.log(withoutPrefix, "https://github.com/" + withoutPrefix);
+            $company.parentElement.href = `https://github.com/${withoutPrefix}`;
+            $company.parentElement.parentElement.classList.remove("js-not-available");
+        } else {
+            $company.textContent = "Not available";
+            $company.parentElement.href = "#";
+            $company.parentElement.parentElement.classList.add("js-not-available");
+        }
     })
     .catch(err => {
         console.log(err);
@@ -102,7 +156,7 @@ function displayTimeText(info) {
         }
     });
 
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Aug", "Sep", "Nov", "Dec"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const currentMonth = months[Number(month) - 1];
 
     console.log(`Joined ${day} ${currentMonth} ${year}`);
@@ -110,6 +164,5 @@ function displayTimeText(info) {
     return `Joined ${day} ${currentMonth} ${year}`;
 
 }
-
 
 
