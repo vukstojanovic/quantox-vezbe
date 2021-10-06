@@ -550,6 +550,7 @@ section.js-night .info h3 {
     
     .info h1 {
         font-size: 26px;
+        max-width: 300px;
     }
     
     .info h3 {
@@ -559,8 +560,7 @@ section.js-night .info h3 {
     .info p.joined {
         font-size: 15px;
         position: absolute;
-        position: absolute;
-        top: 13%;
+        top: 12%;
         left: 70%;
     }
     
@@ -568,9 +568,6 @@ section.js-night .info h3 {
         width: 480px;
         margin: 0;
         margin-top: 20px;
-        /* position: absolute;
-        top: 29%;
-        left: 27.5%; */
     }
     
     .stats {

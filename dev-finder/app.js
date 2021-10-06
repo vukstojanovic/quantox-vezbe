@@ -93,7 +93,7 @@ function displayProfile(name) {
 
         if (result.blog) {
             $blog.textContent = result.blog;
-            $blog.parentElement.href = result.blog.includes('https://') ? result.blog : `https://${result.blog}`;
+            $blog.parentElement.href = result.blog.includes('https://') || result.blog.includes('http://') ? result.blog : `https://${result.blog}`;
             $blog.parentElement.parentElement.classList.remove("js-not-available");
         } else {
             $blog.textContent = "Not available";
@@ -152,8 +152,6 @@ function displayTimeText(info) {
             day += letter;
         } else if (letter === "-") {
             lines++;
-        } else if (letter === "T") {
-            
         }
     });
 
