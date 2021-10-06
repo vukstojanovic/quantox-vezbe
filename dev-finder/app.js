@@ -1,5 +1,4 @@
 
-
 const $day = document.getElementById("js-day");
 const $night = document.getElementById("js-night");
 const $inputContainer = document.querySelector(".input-container");
@@ -16,10 +15,10 @@ const $desc = document.querySelector(".desc");
 const $repos = document.getElementById("js-repos");
 const $followers = document.getElementById("js-followers");
 const $following = document.getElementById("js-following");
-const $location = document.querySelectorAll(".link:nth-child(1) p")[0];
-const $blog = document.querySelectorAll(".link:nth-child(2) p")[0];
-const $twitter = document.querySelectorAll(".link:nth-child(3) p")[0];
-const $company = document.querySelectorAll(".link:nth-child(4) p")[0];
+const $location = document.getElementById("location");
+const $blog = document.getElementById("blog");
+const $twitter = document.getElementById("twitter");
+const $company = document.getElementById("company");
 const $error = document.querySelector(".input-container span");
 
 
