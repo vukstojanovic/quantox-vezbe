@@ -1,0 +1,298 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Spartan', sans-serif;;
+}
+
+:root {
+
+    /* first theme */
+
+    --first-main-background: hsl(222, 26%, 31%);
+    --first-keypad-background: hsl(223, 31%, 20%);
+    --first-screen-background: hsl(224, 36%, 15%);
+    --first-key-background: hsl(225, 21%, 49%);
+    --first-key-shadow: hsl(224, 28%, 35%);
+    --first-key-orange: hsl(6, 63%, 50%);
+    --first-key-orange-shadow: hsl(6, 70%, 34%);
+    --first-equal-key-background: hsl(30, 25%, 89%);
+    --first-equal-key-shadow: hsl(28, 16%, 65%);
+    --first-text-dark: hsl(221, 14%, 31%);
+    --first-text-white: hsl(0, 0, 100%);
+
+    /* second theme */
+
+    --second-main-background: hsl(0, 0%, 90%);
+    --second-keypad-background: hsl(0, 5%, 81%);
+    --second-screen-background: hsl(0, 0%, 93%);
+    --second-key-background: hsl(185, 42%, 37%);
+    --second-key-shadow: hsl(185, 58%, 25%);
+    --second-key-orange: hsl(25, 98%, 40%);
+    --second-key-orange-shadow: hsl(25, 99%, 27%);
+    --second-equal-key-background: hsl(45, 7%, 89%);
+    --second-equal-key-shadow: hsl(35, 11%, 61%);
+    --second-text-dark: hsl(60, 10%, 19%);
+    --second-text-white: hsl(0, 0, 100%);
+
+    /* third theme */
+
+    --third-main-background: hsl(268, 75%, 9%);
+    --third-keypad-background: hsl(268, 71%, 12%);
+    --third-screen-background: hsl(281, 89%, 26%);
+    --third-key-background: hsl(285, 91%, 52%);
+    --third-key-shadow: hsl(176, 100%, 44%);
+    --third-key-orange: hsl(177, 92%, 70%);
+    --third-key-orange-shadow: hsl(268, 48%, 21%);
+    --third-equal-key-background: hsl(290, 70%, 36%);
+    --third-equal-key-shadow: hsl(52, 100%, 62%);
+    --third-text-dark: hsl(198, 20%, 13%);
+    --third-text-white: hsl(0, 0, 100%);
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    width: 375px;
+    padding: 24px;
+    background-color: var(--first-main-background);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 34px;
+    color: white;
+}
+
+.title {
+    font-size: 32px;
+}
+
+.themes {
+    display: flex;
+}
+
+.themes > p {
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-right: 21px;
+    margin-bottom: 5px;
+    align-self: flex-end;
+}
+
+.switch-wrapper {
+    width: 71px;
+}
+
+.enumeration {
+    display: flex;
+    justify-content: space-around;
+}
+
+.enumeration p {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.switcher {
+    background-color: var(--first-screen-background);
+    padding: 5px;
+    /* padding-left: 7px; */
+    border-radius: 20px;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+}
+
+.btn-theme {
+    background-color: var(--first-key-orange);
+    height: 16px;
+    width: 16px;
+    /* width: 33%; */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.result-area {
+    background-color: var(--first-screen-background);
+    font-size: 32px;
+    padding: 20px;
+    text-align: right;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.result-area span {
+    color: white;
+}
+
+.buttons {
+    background-color: var(--first-keypad-background);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    column-gap: 13px;
+    row-gap: 17px;
+    padding: 24px;
+}
+
+.buttons div {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    /* font-size: 16px; */
+}
+
+.buttons div span {
+    height: fit-content;
+}
+
+.buttons .num {
+    font-size: 32px;
+} 
+
+.btn-regular {
+    background-color: var(--first-equal-key-background);
+    box-shadow: 0px 4px var(--first-equal-key-shadow);
+}
+
+.btn-regular span {
+    color: var(--first-main-background);
+}
+
+.btn-del, .btn-reset {
+    background-color: var(--first-key-background);
+    color: white;
+    box-shadow: 0px 4px var(--first-main-background);
+}
+
+.btn-reset {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.btn-equals {
+    background-color: var(--first-key-orange);
+    grid-column-start: 3;
+    grid-column-end: 5;
+    box-shadow: 0px 4px var(--first-key-orange-shadow);
+}
+
+.btn-equals span {
+    color: white !important;
+}
+
+/* second theme */
+
+main.js-second {
+    background-color: var(--second-main-background);
+    color: var(--second-text-dark);
+}
+
+header.js-second {
+    color: var(--second-text-dark);
+}
+
+.switcher.js-second {
+    background-color: var(--second-keypad-background);
+}
+
+.result-area.js-second {
+    background-color: var(--second-screen-background);
+}
+
+.result-area.js-second span {
+    color: var(--second-text-dark);
+}
+
+.buttons.js-second {
+    background-color: var(--second-keypad-background);
+}
+
+.btn-regular.js-second {
+    background-color: var(--second-equal-key-background);
+    box-shadow: 0px 4px var(--second-equal-key-shadow);
+}
+
+.btn-regular.js-second span {
+    color: var(--second-text-dark);
+}
+
+.btn-del.js-second, .btn-reset.js-second {
+    background-color: var(--second-key-background);
+    color: white;
+    box-shadow: 0px 4px var(--second-key-shadow);
+}
+
+.btn-equals.js-second {
+    background-color: var(--second-key-orange);
+    box-shadow: 0px 4px var(--second-key-orange-shadow);
+}
+
+/* third theme */
+
+main.js-third {
+    background-color: var(--third-main-background);
+    color: var(--third-text-dark);
+}
+
+header.js-third {
+    color: var(--third-equal-key-shadow);
+}
+
+.switcher.js-third {
+    background-color: var(--third-keypad-background);
+}
+
+.btn-theme.js-third {
+    background-color: var(--third-key-shadow);
+}
+
+.result-area.js-third {
+    background-color: var(--third-keypad-background);
+}
+
+.result-area.js-third span {
+    color: var(--third-equal-key-shadow);
+}
+
+.buttons.js-third {
+    background-color: var(--third-keypad-background);
+}
+
+.btn-regular.js-third {
+    background-color: var(--third-key-orange-shadow);
+    box-shadow: 0px 4px var(--third-key-background);
+}
+
+.btn-regular.js-third span {
+    color: var(--third-equal-key-shadow);
+}
+
+.btn-del.js-third, .btn-reset.js-third {
+    background-color: var(--third-screen-background);
+    color: white;
+    box-shadow: 0px 4px var(--third-key-background);
+}
+
+.btn-equals.js-third {
+    background-color: var(--third-key-shadow);
+    box-shadow: 0px 4px var(--third-key-orange);
+}
+
+.btn-equals.js-third span {
+    color: var(--third-text-dark) !important;
+}
