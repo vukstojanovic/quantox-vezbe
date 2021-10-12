@@ -184,6 +184,10 @@ header {
     font-size: 32px;
 }
 
+.btn-regular:hover {
+    background-color: #fffffe;
+}
+
 .btn-regular:nth-child(16) {
     font-size: 25px;
 }
@@ -198,6 +202,10 @@ header {
     box-shadow: 0px 4px var(--first-main-background);
 }
 
+.btn-del:hover, .btn-reset:hover {
+    background-color: #a2b2e1;
+}
+
 .btn-reset {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -208,6 +216,10 @@ header {
     grid-column-start: 3;
     grid-column-end: 5;
     box-shadow: 0px 4px var(--first-key-orange-shadow);
+}
+
+.btn-equals:hover {
+    background-color: #f96b5b;
 }
 
 .btn-equals span {
@@ -250,6 +262,10 @@ header.js-second {
     box-shadow: 0px 4px var(--second-equal-key-shadow);
 }
 
+.btn-regular.js-second:hover {
+    background-color: #ffffff;
+}
+
 .btn-regular.js-second span {
     color: var(--second-text-dark);
 }
@@ -260,9 +276,17 @@ header.js-second {
     box-shadow: 0px 4px var(--second-key-shadow);
 }
 
+.btn-del.js-second:hover, .btn-reset.js-second:hover {
+    background-color: #62b5bc;
+}
+
 .btn-equals.js-second {
     background-color: var(--second-key-orange);
     box-shadow: 0px 4px var(--second-key-orange-shadow);
+}
+
+.btn-equals.js-second:hover {
+    background-color: #ff8a38;
 }
 
 .first.js-second {
@@ -317,6 +341,10 @@ header.js-third {
     box-shadow: 0px 4px var(--third-key-background);
 }
 
+.btn-regular.js-third:hover {
+    background-color: #6c34ac;
+}
+
 .btn-regular.js-third span {
     color: var(--third-equal-key-shadow);
 }
@@ -327,9 +355,17 @@ header.js-third {
     box-shadow: 0px 4px var(--third-key-background);
 }
 
+.btn-del.js-third:hover, .btn-reset.js-third:hover {
+    background-color: #8631af;
+}
+
 .btn-equals.js-third {
     background-color: var(--third-key-shadow);
     box-shadow: 0px 4px var(--third-key-orange);
+}
+
+.btn-equals.js-third:hover {
+    background-color: #93fff8;
 }
 
 .btn-equals.js-third span {
