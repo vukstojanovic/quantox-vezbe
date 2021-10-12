@@ -57,6 +57,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-color: var(--first-main-background);
 }
 
 main {
@@ -109,6 +110,7 @@ header {
     border-radius: 20px;
     transition: all 0.5s ease-in-out;
     display: flex;
+    justify-content: space-between;
 }
 
 .btn-theme {
@@ -118,6 +120,18 @@ header {
     /* width: 33%; */
     border-radius: 50%;
     cursor: pointer;
+}
+
+.first {
+    visibility: visible;
+}
+
+.second {
+    visibility: hidden;
+}
+
+.third {
+    visibility: hidden;
 }
 
 .result-area {
@@ -167,6 +181,11 @@ header {
 .btn-regular {
     background-color: var(--first-equal-key-background);
     box-shadow: 0px 4px var(--first-equal-key-shadow);
+    font-size: 32px;
+}
+
+.btn-regular:nth-child(16) {
+    font-size: 25px;
 }
 
 .btn-regular span {
@@ -196,6 +215,10 @@ header {
 }
 
 /* second theme */
+
+body.js-second {
+    background-color: var(--second-main-background);
+}
 
 main.js-second {
     background-color: var(--second-main-background);
@@ -242,7 +265,23 @@ header.js-second {
     box-shadow: 0px 4px var(--second-key-orange-shadow);
 }
 
+.first.js-second {
+    visibility: hidden;
+}
+
+.second.js-second {
+    visibility: visible;
+}
+
+.third.js-second {
+    visibility: hidden;
+}
+
 /* third theme */
+
+body.js-third {
+    background-color: var(--third-main-background);
+}
 
 main.js-third {
     background-color: var(--third-main-background);
@@ -296,3 +335,42 @@ header.js-third {
 .btn-equals.js-third span {
     color: var(--third-text-dark) !important;
 }
+
+.first.js-third {
+    visibility: hidden;
+}
+
+.second.js-third {
+    visibility: hidden;
+}
+
+.third.js-third {
+    visibility: visible;
+}
+
+@media only screen and (min-width: 900px) {
+
+    main {
+        width: 540px;
+        padding: 0;
+    }
+
+    .buttons {
+        background-color: var(--first-keypad-background);
+        grid-template-columns: repeat(4, 101px);
+        column-gap: 24px;
+        row-gap: 24px;
+        padding: 32px;
+    }
+
+    .buttons div {
+        padding: 0px;
+    }
+
+}
+
+
+
+
+
+
