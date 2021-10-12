@@ -55,14 +55,15 @@ $operations.forEach(operation => {
 $delBtn.addEventListener('click', () => {
     if (del) {
         currentNumber = currentNumber.substring(0, currentNumber.length - 1);
-        currentNumber === "" ? $resultText.textContent = 0 : $resultText.textContent = currentNumber;
+        currentNumber === "" ? $resultText.textContent = 0 : $resultText.textContent = currentNumber.substring(0, 12);
     }
 });
 
 $resetBtn.addEventListener('click', () => {
     currentValue = 0;
     currentOperation = '+';
-    $resultText.textContent = currentValue;
+    currentNumber = '';
+    $resultText.textContent = currentValue.toString().substring(0, 12);
 });
 
 $decimalBtn.addEventListener('click', () => {
@@ -72,7 +73,7 @@ $decimalBtn.addEventListener('click', () => {
         } else {
             currentNumber += '.';
         }
-        $resultText.textContent = currentNumber;
+        $resultText.textContent = currentNumber.substring(0, 12);
     }
 });
 
