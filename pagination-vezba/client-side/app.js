@@ -8,6 +8,7 @@ const total = document.getElementById("total");
 
 let page = 1;
 let limit = 10;
+let more = true;
 const defaultUrl = "http://localhost:3001/api/users";
 
 async function fetchData(url) {
@@ -20,9 +21,9 @@ function displayInfo(url) {
     fetchData(url)
     .then(result => {
         console.log(result);
+        more = true;
         if (!result.hasMore) {
-            // total.textContent = page;
-            page--;
+            more = false;
         }
         const divList = result.results.map(obj => {
             console.log(obj.name);
@@ -42,7 +43,9 @@ displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
 
 
 btnNext.addEventListener("click", () => {
-    page++;
+    if (more) {
+        page++;
+    }
     displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
     current.textContent = page;
 });
