@@ -21,10 +21,7 @@ function displayInfo(url) {
     fetchData(url)
     .then(result => {
         console.log(result);
-        more = true;
-        if (!result.hasMore) {
-            more = false;
-        }
+        more = result.hasMore;
         const divList = result.results.map(obj => {
             console.log(obj.name);
             return `<div>${obj.id}, ${obj.name}, ${obj.email}, ${obj.address}, ${obj.country}, ${obj.company}</div>`
@@ -40,7 +37,6 @@ function displayInfo(url) {
 }
 
 displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
-
 
 btnNext.addEventListener("click", () => {
     if (more) {
