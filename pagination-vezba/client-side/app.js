@@ -11,32 +11,9 @@ let limit = 10;
 let more = true;
 const defaultUrl = "http://localhost:3001/api/users";
 
-async function fetchData(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-}
-
-function displayInfo(url) {
-    fetchData(url)
-    .then(result => {
-        console.log(result);
-        more = result.hasMore;
-        const divList = result.results.map(obj => {
-            console.log(obj.name);
-            return `<div>${obj.id}, ${obj.name}, ${obj.email}, ${obj.address}, ${obj.country}, ${obj.company}</div>`
-        });
-        console.log(divList);
-        main.innerHTML = `${divList.join("")}`;
-    })
-    .catch(err => {
-        console.log(err);
-    })
-
-    current.textContent = page;
-}
-
 displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
+
+// event listeners
 
 btnNext.addEventListener("click", () => {
     if (more) {
@@ -54,9 +31,29 @@ btnPrev.addEventListener("click", () => {
     current.textContent = page;
 });
 
+// function
 
+async function fetchData(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+}
 
+function displayInfo(url) {
+    fetchData(url)
+    .then(result => {
+        more = result.hasMore;
+        const divList = result.results.map(obj => {
+            return `<div>${obj.id}, ${obj.name}, ${obj.email}, ${obj.address}, ${obj.country}, ${obj.company}</div>`
+        });
+        main.innerHTML = `${divList.join("")}`;
+    })
+    .catch(err => {
+        console.log(err);
+    })
 
+    current.textContent = page;
+}
 
 
 
