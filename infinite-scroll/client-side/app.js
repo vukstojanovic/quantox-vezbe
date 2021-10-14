@@ -3,14 +3,14 @@ const $main = document.querySelector("main");
 $main.style.marginTop = "300px";
 
 let page = 1;
-let limit = 45;
+let limit = 65;
 
 let more = true;
 const defaultUrl = "http://localhost:3001/api/users";
 
 displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
 
-window.addEventListener("scroll", debounced(100, handleScroll));
+window.addEventListener("scroll", throttled(20, handleScroll));
 
 
 
@@ -65,5 +65,16 @@ function debounced(delay, fn) {
         timerId = null;
       }, delay);
     }
-  }
+}
 
+function throttled(delay, fn) {
+    let lastCall = 0;
+    return function (...args) {
+      const now = (new Date).getTime();
+      if (now - lastCall < delay) {
+        return;
+      }
+      lastCall = now;
+      return fn(...args);
+    }
+}
