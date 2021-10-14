@@ -7,8 +7,12 @@ const btnNext = document.getElementById("next");
 const current = document.getElementById("current");
 const total = document.getElementById("total");
 
-let page = 1;
-let limit = 10;
+const urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams.get('page'));
+let page = urlParams.get('page') ?? 1;
+let limit = urlParams.get('limit') ?? 10;
+// let page = 1;
+// let limit = 10;
 let more = true;
 const defaultUrl = "http://localhost:3001/api/users";
 
@@ -24,6 +28,7 @@ btnNext.addEventListener("click", () => {
     
     displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
     current.textContent = page;
+    updateUrl();
     
 });
 
@@ -33,6 +38,7 @@ btnPrev.addEventListener("click", () => {
     }
     displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
     current.textContent = page;
+    updateUrl();
 });
 
 // functions
