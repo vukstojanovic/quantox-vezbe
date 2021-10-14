@@ -1,4 +1,5 @@
 
+// variables
 
 const main = document.querySelector("main");
 const btnPrev = document.getElementById("prev");
@@ -11,9 +12,8 @@ let limit = 10;
 let more = true;
 const defaultUrl = "http://localhost:3001/api/users";
 
-// btnNext.href = `?page=${page}&limit=${limit}`;
-
 displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
+// displayInfo(updateQueryStringParameter(defaultUrl, page, limit));
 
 // event listeners
 
@@ -21,9 +21,10 @@ btnNext.addEventListener("click", () => {
     if (more) {
         page++;
     }
+    
     displayInfo(`${defaultUrl}?page=${page}&limit=${limit}`);
     current.textContent = page;
-    updateUrl();
+    
 });
 
 btnPrev.addEventListener("click", () => {
@@ -34,7 +35,7 @@ btnPrev.addEventListener("click", () => {
     current.textContent = page;
 });
 
-// function
+// functions
 
 async function fetchData(url) {
     const response = await fetch(url);
@@ -50,6 +51,7 @@ function displayInfo(url) {
             return `<div>${obj.id}, ${obj.name}, ${obj.email}, ${obj.address}, ${obj.country}, ${obj.company}</div>`
         });
         main.innerHTML = `${divList.join("")}`;
+        // updateUrl();
     })
     .catch(err => {
         console.log(err);
@@ -64,20 +66,11 @@ function displayInfo(url) {
 //     window.history.pushState({path: url}, "", url);
 // }
 
-function updateQueryStringParameter(uri, key, value) {
-    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
-    if (uri.match(re)) {
-      return uri.replace(re, '$1' + key + "=" + value + '$2');
-    }
-    else {
-      return uri + separator + key + "=" + value;
-    }
-  }
 
-// console.log(updateQueryStringParameter(window.location.search, page, limit));
-
-
+function updateUrl() {
+    // window.location.search = ``;
+    location.search = `?page=${page}&limit=${limit}`;
+}
 
 
 
