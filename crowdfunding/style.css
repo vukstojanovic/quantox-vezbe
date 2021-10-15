@@ -1,0 +1,248 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --moderate-cyan: hsl(176, 50%, 47%);
+    --dark-cyan: hsl(176, 72%, 28%);
+    --black: hsl(0, 0%, 0%);
+    --dark-gray: hsl(0, 0%, 48%);
+    --light-gray: #e6e3e3;
+    --white: #ffffff;
+    --background-white: #fafafa;
+}
+
+body {
+    /* background-size: 100% 300px; */
+    font-family: 'Commissioner', sans-serif;
+    font-size: 16px;
+    background-color: var(--background-white);
+}
+
+.nav-container {
+    background: url('./images/image-hero-mobile.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 300px;
+    background-size: 100% 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 32px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.burger {
+    cursor: pointer;
+}
+
+main {
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-top: -55px;
+}
+
+section {
+    padding-left: 24px;
+    padding-right: 24px;
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.0497193);
+    margin-bottom: 24px;
+}
+
+section h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+section p {
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+.first {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.upper-img {
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+}
+
+.first h2 {
+    margin-bottom: 16px;
+    padding-top: 52px;
+    font-size: 21px;
+}
+
+.first p {
+    margin-bottom: 24px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back {
+    padding: 17px 42px;
+    color: var(--white);
+    background-color: var(--moderate-cyan);
+    border-radius: 33px;
+    border: none;
+    font-weight: 700; 
+    font-size: 16px;
+}
+
+.bookmark {
+    border-radius: 50%;
+}
+
+.bookmark span {
+    display: none;
+}
+
+.second {
+    padding-top: 32px;
+    padding-bottom: 40px;
+}
+
+.nums {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 9px;
+    color: var(--black);
+}
+
+hr {
+    width: 80px;
+    margin: auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.progress-bar {
+    margin-top: 32px;
+    height: 12px;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+}
+
+.progress {
+    height: 12px;
+    width: 80%;
+    background-color: var(--moderate-cyan);
+    border-radius: 8px;
+}
+
+.third {
+    text-align: left;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.third h2 {
+    margin-bottom: 24px;
+}
+
+.third p {
+    margin-bottom: 35px;
+}
+
+aside {
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+aside .black {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+aside .green {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--moderate-cyan);
+    margin-bottom: 24px;
+}
+
+aside p {
+    margin-bottom: 24px;
+}
+
+aside button {
+    padding: 15px 32px;
+    color: var(--white);
+    font-weight: 700;
+    background-color: var(--moderate-cyan);
+    border: none;
+    border-radius: 33px;
+}
+
+.how-many {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.big-letter {
+    color: var(--black);
+    font-size: 32px;
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+.small-letter {
+    color: var(--dark-gray);
+    font-size: 15px;
+}
+
+p {
+    line-height: 24px;
+}
+
+.modal {
+    padding: 24px;
+}
+
+
+/* aside {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+aside .black {
+    width: 50%;
+}
+
+aside .green {
+    width: 50%;
+    text-align: right;
+}
+
+.how-many, aside button {
+    margin-top: 0px;
+}
+
+.how-many {
+    align-self: center;
+    margin: 0px;
+}
+
+aside button {
+    align-self: center;
+} */
