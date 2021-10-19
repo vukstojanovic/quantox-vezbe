@@ -61,7 +61,7 @@ export default function Modal() {
   
           <aside className="product">
             <div className="radio-container no-reward">
-                <label for="myRadioId" className="radio">
+                <label className="radio">
                   <input type="radio" name="radioName" id="no-reward" onClick={displayLower}/>
                   <div className="radio-colored"></div>
                 </label>
@@ -83,7 +83,7 @@ export default function Modal() {
       
           <aside className="product">
             <div className="radio-container">
-                <label for="myRadioId" className="radio">
+                <label className="radio">
                   <input type="radio" name="radioName" id="bambooStand" onClick={displayLower}/>
                   <div className="radio-colored"></div>
                 </label>
@@ -141,7 +141,7 @@ export default function Modal() {
       
           <aside className="product">
             <div className="radio-container">
-                <label for="myRadioId" className="radio">
+                <label className="radio">
                   <input type="radio" name="radioName" id="mahoganyStand" onClick={displayLower}/>
                   <div className="radio-colored"></div>
                 </label>

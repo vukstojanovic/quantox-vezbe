@@ -74,7 +74,7 @@ export default function Main() {
             to allow notepads, pens, and USB sticks to be stored under the stand.
           </p>
     
-          <aside classNameName="product">
+          <aside className="product">
             <h3 className="black">Bamboo Stand</h3>
             <h3 className="green">Pledge $25 or more</h3>
             <p>
@@ -86,10 +86,10 @@ export default function Main() {
               <span className="small-letter">left</span>
             </div>
             <button onClick={() => setShowModal(true)}>{bambooStand ? "Select Reward" : "Out of stock"}</button>
-            <div classNameName={bambooStand ? "none" : "unavailable-item"}></div>
+            <div className={bambooStand ? "none" : "unavailable-item"}></div>
           </aside>
     
-          <aside classNameName="product">
+          <aside className="product">
             <h3 className="black">Black Edition Stand</h3>
             <h3 className="green">Pledge $75 or more</h3>
             <p>
@@ -101,10 +101,10 @@ export default function Main() {
               <span className="small-letter">left</span>
             </div>
             <button onClick={() => setShowModal(true)}>{blackEditionStand ? "Select Reward" : "Out of stock"}</button>
-            <div classNameName={blackEditionStand ? "none" : "unavailable-item"}></div>
+            <div className={blackEditionStand ? "none" : "unavailable-item"}></div>
           </aside>
     
-          <aside classNameName="product">
+          <aside className="product">
             <h3 className="black">Mahogany Special Edition</h3>
             <h3 className="green">Pledge $200 or more</h3>
             <p>
@@ -116,7 +116,7 @@ export default function Main() {
               <span className="small-letter">left</span>
             </div>
             <button onClick={() => setShowModal(true)}>{mahagonySpecialEdition ? "Select Reward" : "Out of stock"}</button>
-            <div classNameName={mahagonySpecialEdition ? "none" : "unavailable-item"}></div>
+            <div className={mahagonySpecialEdition ? "none" : "unavailable-item"}></div>
           </aside>
         </section>
       </main>
