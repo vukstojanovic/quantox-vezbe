@@ -450,6 +450,10 @@ button {
   position: absolute;
 }
 
+.grey {
+  background-color: var(--dark-gray);
+}
+
 @media only screen and (min-width: 1440px) {
 
   .nav-container {

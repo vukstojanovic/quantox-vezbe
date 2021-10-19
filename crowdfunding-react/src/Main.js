@@ -85,7 +85,7 @@ export default function Main() {
               <span className="big-letter">{bambooStand}</span>
               <span className="small-letter">left</span>
             </div>
-            <button onClick={() => setShowModal(true)}>{bambooStand ? "Select Reward" : "Out of stock"}</button>
+            <button onClick={() => setShowModal(true)} className={bambooStand === 0 ? "grey": ""}>{bambooStand ? "Select Reward" : "Out of stock"}</button>
             <div className={bambooStand ? "none" : "unavailable-item"}></div>
           </aside>
     
@@ -100,7 +100,7 @@ export default function Main() {
               <span className="big-letter">{blackEditionStand}</span>
               <span className="small-letter">left</span>
             </div>
-            <button onClick={() => setShowModal(true)}>{blackEditionStand ? "Select Reward" : "Out of stock"}</button>
+            <button onClick={() => setShowModal(true)} className={blackEditionStand === 0 ? "grey": ""}>{blackEditionStand ? "Select Reward" : "Out of stock"}</button>
             <div className={blackEditionStand ? "none" : "unavailable-item"}></div>
           </aside>
     
@@ -115,7 +115,7 @@ export default function Main() {
               <span className="big-letter">{mahagonySpecialEdition}</span>
               <span className="small-letter">left</span>
             </div>
-            <button onClick={() => setShowModal(true)}>{mahagonySpecialEdition ? "Select Reward" : "Out of stock"}</button>
+            <button onClick={() => setShowModal(true)} className={mahagonySpecialEdition === 0 ? "grey": ""}>{mahagonySpecialEdition ? "Select Reward" : "Out of stock"}</button>
             <div className={mahagonySpecialEdition ? "none" : "unavailable-item"}></div>
           </aside>
         </section>
