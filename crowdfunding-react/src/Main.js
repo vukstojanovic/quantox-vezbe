@@ -1,13 +1,13 @@
 
 import logoMastercraft from './images/logo-mastercraft.svg';
 import iconBookmark from './images/icon-bookmark.svg';
-import iconBookmarked from './images/obojeni-krug.png';
+// import iconBookmarked from './images/obojeni-krug.png';
 import { UseGlobalContext } from './context';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Main() {
 
-    const {showModal, setShowModal} = UseGlobalContext();
+    const {setShowModal} = UseGlobalContext();
     const {totalMoney} = UseGlobalContext();
     const {totalBackers} = UseGlobalContext();
     const {bambooStand} = UseGlobalContext();

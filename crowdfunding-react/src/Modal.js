@@ -1,16 +1,16 @@
 import closeModal from './images/icon-close-modal.svg';
 import {UseGlobalContext} from './context';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 export default function Modal() {
 
     const {showModal, setShowModal} = UseGlobalContext();
-    const {showFinal, setShowFinal} = UseGlobalContext();
+    const {setShowFinal} = UseGlobalContext();
     const {totalMoney, setTotalMoney} = UseGlobalContext();
     const {bambooStand, setBambooStand} = UseGlobalContext();
     const {blackEditionStand, setBlackEditionStand} = UseGlobalContext();
     const {mahagonySpecialEdition, setMahagonySpecialEdition} = UseGlobalContext();
-    const {totalBackers, setTotalBackers} = UseGlobalContext();
+    const {setTotalBackers} = UseGlobalContext();
     const [currentPledge, setCurrentPledge] = useState(0);
     const [currentReward, setCurrentReward] = useState("");
 

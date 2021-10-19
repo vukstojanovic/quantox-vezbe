@@ -3,7 +3,7 @@ import Nav from './Nav';
 import Main from './Main';
 import Modal from './Modal';
 import Final from './Final';
-import {ContextProvider, UseGlobalContext} from './context';
+import {ContextProvider} from './context';
 
 
 function App() {
