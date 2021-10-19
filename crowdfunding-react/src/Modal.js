@@ -1,10 +1,59 @@
-
+import closeModal from './images/icon-close-modal.svg';
+import {UseGlobalContext} from './context';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Modal() {
 
+    const {showModal, setShowModal} = UseGlobalContext();
+    const {showFinal, setShowFinal} = UseGlobalContext();
+    const {totalMoney, setTotalMoney} = UseGlobalContext();
+    const {bambooStand, setBambooStand} = UseGlobalContext();
+    const {blackEditionStand, setBlackEditionStand} = UseGlobalContext();
+    const {mahagonySpecialEdition, setMahagonySpecialEdition} = UseGlobalContext();
+    const {totalBackers, setTotalBackers} = UseGlobalContext();
+    const [currentPledge, setCurrentPledge] = useState(0);
+    const [currentReward, setCurrentReward] = useState("");
+
+    console.log(totalMoney);
+
+    function hideLowers() {
+      document.querySelectorAll(".lower").forEach(item => {
+        item.classList.add("js-hidden");
+      })
+    }
+
+    function displayLower(e) {
+      hideLowers();
+      console.log(e.target.checked);
+      console.log(e.target.parentElement.parentElement.parentElement.querySelector(".lower"));
+      setCurrentReward(e.target.id);
+      if (e.target.checked) {
+        const lower = e.target.parentElement.parentElement.parentElement.querySelector(".lower");
+        lower.classList.remove("js-hidden");
+      }
+    }
+
+    function pledgeMoney() {
+      setTotalMoney(prevValue => prevValue + Number(currentPledge));
+      setTotalBackers(prevValue => prevValue + 1);
+      setCurrentPledge(0);
+      setShowModal(false);
+      setShowFinal(true);
+      if (currentReward === "bambooStand") {
+        setBambooStand(prev => prev - 1);
+      } else if (currentReward === "blackEditionStand") {
+        setBlackEditionStand(prev => prev - 1);
+      } else if (currentReward === "mahoganyStand") {
+        setMahagonySpecialEdition(prev => prev - 1);
+      }
+    }
+
+    // function updateBambooStand
+
     return(
-    <div class="modal-background js-hidden">
+    <div className={showModal ? "modal-background" : "modal-background js-hidden"}>
         <div class="modal">
+          <img src={closeModal} alt="closeModal" className="closeModal" onClick={() => setShowModal(false)}/>
           <h2>Back this project</h2>
           <p>
             Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
@@ -13,7 +62,7 @@ export default function Modal() {
           <aside class="product">
             <div class="radio-container no-reward">
                 <label for="myRadioId" class="radio">
-                  <input type="radio" name="radioName"/>
+                  <input type="radio" name="radioName" id="no-reward" onClick={displayLower}/>
                   <div class="radio-colored"></div>
                 </label>
                 <div class="heading-container">
@@ -23,19 +72,19 @@ export default function Modal() {
             <p>
               Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.
             </p>
-            <div class="lower">
+            <div class="lower js-hidden">
                 <p class="lower-text">Enter your pledge</p>
                 <div class="lower-inputs">
-                    <input type="number" placeholder="$"/>
-                    <button>Continue</button>
+                    <input type="number" placeholder="$" value={currentPledge} onChange={(e) => setCurrentPledge(e.target.value)}/>
+                    <button onClick={pledgeMoney}>Continue</button>
                 </div>
             </div>
           </aside>
       
-          <aside class="product">
+          <aside className="product">
             <div class="radio-container">
                 <label for="myRadioId" class="radio">
-                  <input type="radio" name="radioName"/>
+                  <input type="radio" name="radioName" id="bambooStand" onClick={displayLower}/>
                   <div class="radio-colored"></div>
                 </label>
                 <div class="heading-container">
@@ -48,22 +97,23 @@ export default function Modal() {
               you’ll be added to a special Backer member list.
             </p>
             <div class="how-many">
-              <span class="big-letter">101</span>
+              <span class="big-letter">{bambooStand}</span>
               <span class="small-letter">left</span>
             </div>
             <div class="lower js-hidden">
                 <p class="lower-text">Enter your pledge</p>
                 <div class="lower-inputs">
-                    <input type="number" placeholder="$"/>
-                    <button>Continue</button>
+                    <input type="number" placeholder="$" min={25} value={currentPledge} onChange={(e) => setCurrentPledge(e.target.value)}/>
+                    <button onClick={pledgeMoney}>Continue</button>
                 </div>
             </div>
+            <div className={bambooStand ? "none" : "unavailable-item"}></div>
           </aside>
       
-          <aside class="product">
+          <aside className="product">
             <div class="radio-container">
                 <label for="myRadioId" class="radio">
-                  <input type="radio" name="radioName"/>
+                  <input type="radio" name="radioName" id="blackEditionStand" onClick={displayLower}/>
                   <div class="radio-colored"></div>
                 </label>
                 <div class="heading-container">
@@ -76,22 +126,23 @@ export default function Modal() {
               member list. Shipping is included.
             </p>
             <div class="how-many">
-              <span class="big-letter">64</span>
+              <span class="big-letter">{blackEditionStand}</span>
               <span class="small-letter">left</span>
             </div>
             <div class="lower js-hidden">
                 <p class="lower-text">Enter your pledge</p>
                 <div class="lower-inputs">
-                    <input type="number" placeholder="$"/>
-                    <button>Continue</button>
+                    <input type="number" placeholder="$" min={75} value={currentPledge} onChange={(e) => setCurrentPledge(e.target.value)}/>
+                    <button onClick={pledgeMoney}>Continue</button>
                 </div>
             </div>
+            <div className={blackEditionStand ? "none" : "unavailable-item"}></div>
           </aside>
       
-          <aside class="product">
+          <aside className="product">
             <div class="radio-container">
                 <label for="myRadioId" class="radio">
-                  <input type="radio" name="radioName"/>
+                  <input type="radio" name="radioName" id="mahoganyStand" onClick={displayLower}/>
                   <div class="radio-colored"></div>
                 </label>
                 <div class="heading-container">
@@ -104,16 +155,17 @@ export default function Modal() {
               to our Backer member list. Shipping is included.
             </p>
             <div class="how-many">
-              <span class="big-letter">0</span>
+              <span class="big-letter">{mahagonySpecialEdition}</span>
               <span class="small-letter">left</span>
             </div>
-            <div class="lower">
+            <div class="lower js-hidden">
                 <p class="lower-text">Enter your pledge</p>
                 <div class="lower-inputs">
-                    <input type="number" placeholder="$"/>
-                    <button>Continue</button>
+                    <input type="number" placeholder="$" min={200} value={currentPledge} onChange={(e) => setCurrentPledge(e.target.value)}/>
+                    <button onClick={pledgeMoney}>Continue</button>
                 </div>
             </div>
+            <div className={mahagonySpecialEdition ? "none" : "unavailable-item"}></div>
           </aside>
         </div>
     </div>

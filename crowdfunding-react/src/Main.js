@@ -1,8 +1,31 @@
 
 import logoMastercraft from './images/logo-mastercraft.svg';
 import iconBookmark from './images/icon-bookmark.svg';
+import { UseGlobalContext } from './context';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Main() {
+
+    const {showModal, setShowModal} = UseGlobalContext();
+    const {totalMoney} = UseGlobalContext();
+    const {totalBackers} = UseGlobalContext();
+    const {bambooStand} = UseGlobalContext();
+    const {blackEditionStand} = UseGlobalContext();
+    const {mahagonySpecialEdition} = UseGlobalContext();
+
+    const [isBookmarked, setIsBookmarked]= useState(false);
+    const bar = useRef(null);
+
+    useEffect(() => {
+      const loaded = (totalMoney / 100000) * 100;
+      if (bar.current) {
+        bar.current.style.width = `${loaded}%`;
+      }
+    }, [totalMoney]);
+
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
     return (
     <main>
@@ -14,19 +37,19 @@ export default function Main() {
           <h1>Mastercraft Bamboo Monitor Riser</h1>
           <p>A beautiful a handcrafted monitor stand to reduce neck and eye strain.</p>
           <div class="buttons">
-            <button class="back">Back this project</button>
-            <div class="bookmark"><img src={iconBookmark} alt="bookmark"/><span>Bookmark</span></div>
+            <button class="back" onClick={() => setShowModal(true)}>Back this project</button>
+            <div class={isBookmarked ?"bookmark bookmark-active" : "bookmark"} onClick={() => setIsBookmarked(prev => !prev)}><img src={iconBookmark} alt="bookmark"/><span>Bookmark</span></div>
           </div>
         </section>
     
         <section class="second">
           <article>
-            <p class="nums">$89,914</p>
+            <p class="nums">${numberWithCommas(totalMoney)}</p>
             <p class="description">of $100,000 backed</p>
           </article>
           <hr/>
           <article>
-            <p class="nums"> 5,007</p>
+            <p class="nums">{numberWithCommas(totalBackers)}</p>
             <p class="description">total backers</p>
           </article>
           <hr/>
@@ -35,7 +58,7 @@ export default function Main() {
             <p class="description">days left</p>
           </article>
           <div class="progress-bar">
-            <div class="progress"></div>
+            <div class="progress" ref={bar}></div>
           </div>
         </section>
     
@@ -50,7 +73,7 @@ export default function Main() {
             to allow notepads, pens, and USB sticks to be stored under the stand.
           </p>
     
-          <aside class="product">
+          <aside className="product">
             <h3 class="black">Bamboo Stand</h3>
             <h3 class="green">Pledge $25 or more</h3>
             <p>
@@ -58,13 +81,14 @@ export default function Main() {
               you’ll be added to a special Backer member list.
             </p>
             <div class="how-many">
-              <span class="big-letter">101</span>
+              <span class="big-letter">{bambooStand}</span>
               <span class="small-letter">left</span>
             </div>
-            <button>Select Reward</button>
+            <button onClick={() => setShowModal(true)}>{bambooStand ? "Select Reward" : "Out of stock"}</button>
+            <div className={bambooStand ? "none" : "unavailable-item"}></div>
           </aside>
     
-          <aside class="product">
+          <aside className="product">
             <h3 class="black">Black Edition Stand</h3>
             <h3 class="green">Pledge $75 or more</h3>
             <p>
@@ -72,13 +96,14 @@ export default function Main() {
               member list. Shipping is included.
             </p>
             <div class="how-many">
-              <span class="big-letter">64</span>
+              <span class="big-letter">{blackEditionStand}</span>
               <span class="small-letter">left</span>
             </div>
-            <button>Select Reward</button>
+            <button onClick={() => setShowModal(true)}>{blackEditionStand ? "Select Reward" : "Out of stock"}</button>
+            <div className={blackEditionStand ? "none" : "unavailable-item"}></div>
           </aside>
     
-          <aside class="product">
+          <aside className="product">
             <h3 class="black">Mahogany Special Edition</h3>
             <h3 class="green">Pledge $200 or more</h3>
             <p>
@@ -86,10 +111,11 @@ export default function Main() {
               to our Backer member list. Shipping is included.
             </p>
             <div class="how-many">
-              <span class="big-letter">0</span>
+              <span class="big-letter">{mahagonySpecialEdition}</span>
               <span class="small-letter">left</span>
             </div>
-            <button>Out of stock</button>
+            <button onClick={() => setShowModal(true)}>{mahagonySpecialEdition ? "Select Reward" : "Out of stock"}</button>
+            <div className={mahagonySpecialEdition ? "none" : "unavailable-item"}></div>
           </aside>
         </section>
       </main>
