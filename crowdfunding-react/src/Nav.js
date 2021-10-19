@@ -15,14 +15,14 @@ export default function Nav() {
             <img src={logo} alt="logo"/>
           </div>
           <ul className={!menuShown ? "mobile-menu js-hidden" : "mobile-menu"}>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Discover</a></li>
-            <li><a href="#">Get Started</a></li>
+            <li><a href="/#">About</a></li>
+            <li><a href="/#">Discover</a></li>
+            <li><a href="/#">Get Started</a></li>
           </ul>
           <ul className={"desktop-menu"}>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Discover</a></li>
-            <li><a href="#">Get Started</a></li>
+            <li><a href="/#">About</a></li>
+            <li><a href="/#">Discover</a></li>
+            <li><a href="/#">Get Started</a></li>
           </ul>    
           <div className="burger-xBtn">
             <img src={burger} alt="burger" id="burger" className={menuShown ? "js-hidden" : ""} onClick={() => setMenuShown(true)}/>
