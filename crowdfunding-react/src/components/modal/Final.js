@@ -1,11 +1,11 @@
 
-import correct from './images/icon-check.svg';
-import closeModal from './images/icon-close-modal.svg';
-import {UseGlobalContext} from './context';
+import correct from '../../assets/images/icon-check.svg';
+import closeModal from '../../assets/images/icon-close-modal.svg';
+import {useGlobalContext} from '../../context/GlobalContext';
 
 export default function Final() {
 
-    const {showFinal, setShowFinal} = UseGlobalContext();
+    const {showFinal, setShowFinal} = useGlobalContext();
 
     return(
         <div className={showFinal ? "final-background" : "final-background js-hidden"}>

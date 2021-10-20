@@ -27,7 +27,7 @@ body {
 }
 
 .nav-container {
-  background: url('./images/image-hero-mobile.jpg');
+  background: url('./assets/images/image-hero-mobile.jpg');
   background-position: top;
   background-repeat: no-repeat;
   height: 300px;
@@ -171,7 +171,7 @@ section h2 {
 }
 
 .bookmark-active img {
-  content: url("./images/obojeni-krug.png");
+  content: url("./assets/images/obojeni-krug.png");
 }
 
 .second {
@@ -457,7 +457,7 @@ button {
 @media only screen and (min-width: 1440px) {
 
   .nav-container {
-    background: url('./images/image-hero-desktop.jpg');
+    background: url('./assets/images/image-hero-desktop.jpg');
     height: 400px;
     background-position: top;
     background-repeat: no-repeat;

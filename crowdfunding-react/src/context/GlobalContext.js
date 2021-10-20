@@ -37,8 +37,8 @@ const ContextProvider = ({children}) => {
 
 }
 
-const UseGlobalContext = () => {
+const useGlobalContext = () => {
     return useContext(NewContext);
 }
 
-export {ContextProvider, UseGlobalContext}
+export {ContextProvider, useGlobalContext}

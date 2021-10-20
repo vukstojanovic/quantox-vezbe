@@ -1,18 +1,18 @@
 
-import logoMastercraft from './images/logo-mastercraft.svg';
-import iconBookmark from './images/icon-bookmark.svg';
+import logoMastercraft from '../../assets/images/logo-mastercraft.svg';
+import iconBookmark from '../../assets/images/icon-bookmark.svg';
 // import iconBookmarked from './images/obojeni-krug.png';
-import { UseGlobalContext } from './context';
+import { useGlobalContext } from '../../context/GlobalContext';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Main() {
 
-    const {setShowModal} = UseGlobalContext();
-    const {totalMoney} = UseGlobalContext();
-    const {totalBackers} = UseGlobalContext();
-    const {bambooStand} = UseGlobalContext();
-    const {blackEditionStand} = UseGlobalContext();
-    const {mahagonySpecialEdition} = UseGlobalContext();
+    const {setShowModal} = useGlobalContext();
+    const {totalMoney} = useGlobalContext();
+    const {totalBackers} = useGlobalContext();
+    const {bambooStand} = useGlobalContext();
+    const {blackEditionStand} = useGlobalContext();
+    const {mahagonySpecialEdition} = useGlobalContext();
 
     const [isBookmarked, setIsBookmarked]= useState(false);
     const bar = useRef(null);

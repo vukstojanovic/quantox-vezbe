@@ -1,9 +1,9 @@
 
-import Nav from './Nav';
-import Main from './Main';
-import Modal from './Modal';
-import Final from './Final';
-import {ContextProvider} from './context';
+import Nav from './components/Layout/nav/Nav';
+import Main from './components/main/Main';
+import Modal from './components/modal/Modal';
+import Final from './components/modal/Final';
+import {ContextProvider} from './context/GlobalContext';
 
 
 function App() {
