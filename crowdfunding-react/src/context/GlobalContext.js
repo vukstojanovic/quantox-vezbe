@@ -10,7 +10,7 @@ const ContextProvider = ({children}) => {
     const [showFinal, setShowFinal] = useState(false);
     const [totalMoney, setTotalMoney] = useState(89914);
     const [bambooStand, setBambooStand] = useState(101);
-    const [blackEditionStand, setBlackEditionStand] = useState(64);
+    const [blackEditionStand, setBlackEditionStand] = useState(3);
     const [mahagonySpecialEdition, setMahagonySpecialEdition] = useState(0);
     const [totalBackers, setTotalBackers] = useState(5007);
 

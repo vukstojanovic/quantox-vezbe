@@ -10,13 +10,17 @@ export default function Product({name, minPledge, description, articlesLeft, upd
     console.log(name, minPledge, description, articlesLeft, updateArticles);
 
     function makeAPledge() {
-        setTotalMoney(prevValue => prevValue + Number(currentPledge));
-        setTotalBackers(prevValue => prevValue + 1);
-        setCurrentPledge(0);
-        setShowModal(false);
-        setShowFinal(true);
-        if (updateArticles) {
-            updateArticles(prev => prev - 1);
+        if (Number(currentPledge) < minPledge || Number(currentPledge) === 0) {
+            alert("Below minimum :(");
+        } else {
+            setTotalMoney(prevValue => prevValue + Number(currentPledge));
+            setTotalBackers(prevValue => prevValue + 1);
+            setCurrentPledge(0);
+            setShowModal(false);
+            setShowFinal(true);
+            if (updateArticles) {
+                updateArticles(prev => prev - 1);
+            }
         }
     }
 
