@@ -21,6 +21,7 @@ export default function Product({name, minPledge, description, articlesLeft, upd
             if (updateArticles) {
                 updateArticles(prev => prev - 1);
             }
+            setCurrentReward("Pledge with no reward");
         }
     }
 
@@ -28,7 +29,7 @@ export default function Product({name, minPledge, description, articlesLeft, upd
         <aside className="product">
             <div className="radio-container">
                 <label className="radio">
-                    <input type="radio" name="radioName" value={name} onClick={() => setCurrentReward(name)}/>
+                    <input type="radio" name="radioName" value={name} checked={currentReward === name} onChange={() => setCurrentReward(name)}/>
                     <div className="radio-colored"></div>
                 </label>
                 <div className="heading-container">
