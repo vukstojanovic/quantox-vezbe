@@ -18,21 +18,6 @@ export default function Modal() {
 
     console.log(totalMoney);
 
-    function pledgeMoney() {
-      setTotalMoney(prevValue => prevValue + Number(currentPledge));
-      setTotalBackers(prevValue => prevValue + 1);
-      setCurrentPledge(0);
-      setShowModal(false);
-      setShowFinal(true);
-      if (currentReward === "bambooStand") {
-        setBambooStand(prev => prev - 1);
-      } else if (currentReward === "blackEditionStand") {
-        setBlackEditionStand(prev => prev - 1);
-      } else if (currentReward === "mahoganyStand") {
-        setMahagonySpecialEdition(prev => prev - 1);
-      }
-    }
-
     return(
 
       <div className={showModal ? "modal-background" : "modal-background js-hidden"}>
