@@ -44,7 +44,7 @@ export default function Product({name, minPledge, description, articlesLeft, upd
                 <p className="lower-text">Enter your pledge</p>
                 <div className="lower-inputs">
                     <input type="number" placeholder="$" min={minPledge} value={currentPledge} onChange={(e) => setCurrentPledge(e.target.value)}/>
-                    <button onClick={() => makeAPledge()}>Continue</button>
+                    <button className={articlesLeft === 0 ? "grey": ""} onClick={() => makeAPledge()}>{articlesLeft ? "Continue" : "Out of stock"}</button>
                 </div>
             </div>
             <div className={articlesLeft ? "none" : "unavailable-item"}></div>
