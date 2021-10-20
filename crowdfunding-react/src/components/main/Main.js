@@ -7,12 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Main() {
 
-    const {setShowModal} = useGlobalContext();
-    const {totalMoney} = useGlobalContext();
-    const {totalBackers} = useGlobalContext();
-    const {bambooStand} = useGlobalContext();
-    const {blackEditionStand} = useGlobalContext();
-    const {mahagonySpecialEdition} = useGlobalContext();
+    const {setShowModal, totalMoney, totalBackers, bambooStand, blackEditionStand, mahagonySpecialEdition} = useGlobalContext();
 
     const [isBookmarked, setIsBookmarked]= useState(false);
     const bar = useRef(null);
@@ -123,20 +118,3 @@ export default function Main() {
     )
 
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
