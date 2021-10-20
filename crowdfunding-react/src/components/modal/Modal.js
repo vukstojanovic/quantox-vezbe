@@ -5,8 +5,7 @@ import { useState } from 'react';
 
 export default function Modal() {
 
-    const {showModal, setShowModal, setShowFinal, totalMoney, setTotalMoney, bambooStand, setBambooStand, blackEditionStand, setBlackEditionStand, mahagonySpecialEdition, setMahagonySpecialEdition, setTotalBackers} = useGlobalContext();
-    const [currentPledge, setCurrentPledge] = useState(0);
+    const {showModal, setShowModal, totalMoney, bambooStand, setBambooStand, blackEditionStand, setBlackEditionStand, mahagonySpecialEdition, setMahagonySpecialEdition} = useGlobalContext();
     const [currentReward, setCurrentReward] = useState("");
 
     const productsList = [

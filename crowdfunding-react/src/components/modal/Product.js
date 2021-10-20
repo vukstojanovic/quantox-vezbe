@@ -13,7 +13,6 @@ export default function Product({name, minPledge, description, articlesLeft, upd
         if (Number(currentPledge) < minPledge || Number(currentPledge) === 0) {
             alert("Below minimum :(");
         } else {
-            console.log(currentPledge, minPledge);
             setTotalMoney(prevValue => prevValue + Number(currentPledge));
             setTotalBackers(prevValue => prevValue + 1);
             setCurrentPledge(0);
