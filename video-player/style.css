@@ -1,60 +1,98 @@
 
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    background: linear-gradient(45deg, #500601, #BB0C0C);
+    min-height: 100vh;
+}
+
 main {
     width: 80%;
     margin: auto;
     text-align: center;
+    position: relative;
 }
 
 main h1 {
     margin-top: 50px;
     margin-bottom: 50px;
+    color: cornsilk;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .player video {
     width: 100%;
+    height: 100%;
 }
 
 .controls {
+    display: none;
+    transition: all 0.2s ease-out;
+    overflow: hidden;
+    position: absolute;
     width: 99%;
-    margin: auto;
+    transform: translateY(-120%);
+    left: 0.5%;
+    right: 0.5%;
+}
+
+.controls:hover {
+    display: block;
+}
+
+.player video:hover + .controls {
+    display: block;
 }
 
 .settings {
     text-align: left;
     display: flex;
-    border: 2px solid grey;
     margin-top: 5px;
+    color: white;
+    justify-content: space-between;
 }
 
-.play-btn, .volume-btn {
+.left, .right {
+    display: flex;
+}
+
+.play-btn, .volume-btn, .full-screen-btn, .playback-btn {
     position: relative;
-}
-
-.fa-play {
-    position: absolute;
-}
-
-.play-btn, .volume-btn {
+    font-size: 20px;
     padding: 5px 8px;
-    border-right: 2px solid gray;
     cursor: pointer;
-}
-
-.volume-btn {
     display: flex;
     align-items: center;
 }
 
-.fa-volume-mute {
+.fa-pause, .fa-volume-mute, .fa-compress {
     position: absolute;
     visibility: hidden;
+}
+
+.toggle-visibility .fa-pause, .toggle-visibility .fa-volume-mute, .toggle-visibility .fa-compress{
+    visibility: visible;
+}
+
+.toggle-visibility .fa-play, .toggle-visibility .fa-volume-up, .toggle-visibility .fa-expand{
+    visibility: hidden;
+}
+
+.playback-btn select {
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+}
+
+.playback-btn select option {
+    background-color: transparent;
+    color: black;
 }
 
 .volume-progress {
@@ -69,18 +107,18 @@ main h1 {
 
 .volume-progress-filled {
     background-color: gold;
-    width: 50%;
+    width: 100%;
     height: 100%;
     border-radius: 2px;
 }
 
 .volume-btn:hover > .volume-progress {
-    width: 200px;
+    width: 150px;
 }
 
 .progress-bar {
     background-color: #8B0000;
-    height: 10px;
+    height: 12px;
     cursor: pointer;
 }
 
