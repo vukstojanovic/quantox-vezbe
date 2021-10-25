@@ -11,7 +11,7 @@ function App() {
     if (!loading) {
       setFollowers(data[currentPage]);
     }
-  }, [loading, currentPage]);
+  }, [loading, currentPage, data]);
 
   function goToPrev() {
     if (currentPage <= 0) {
