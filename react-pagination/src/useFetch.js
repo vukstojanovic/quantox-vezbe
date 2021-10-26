@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react'
-import paginate from './utils'
-const url = 'https://api.github.com/users/john-smilga/followers?per_page=100'
 
-export const useFetch = () => {
+export const useFetch = (link) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
 
-  const getProducts = async () => {
-    const response = await fetch(url)
-    const data = await response.json()
-    setData(paginate(data))
-    setLoading(false)
+  const fetchData = async (link) => {
+    try {
+      const response = await fetch(link)
+      const data = await response.json()
+      setData(data)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
-    getProducts()
+    fetchData(link)
   }, [])
-  return { loading, data }
+
+  return { data, loading }
 }
