@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useFetch } from './useFetch'
-import Follower from './Follower'
-import usePagination from './usePagination'
+import { useFetch } from './hooks/useFetch'
+import Follower from './components/Follower/Follower'
+import usePagination from './hooks/usePagination'
 const url = 'https://api.github.com/users/john-smilga/followers?per_page=100'
 
 function App() {
