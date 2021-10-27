@@ -19,5 +19,5 @@ export const useFetch = (link) => {
     fetchData(link)
   }, [])
 
-  return { data, loading }
+  return {data, loading}
 }

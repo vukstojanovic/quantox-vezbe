@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useFetch } from './hooks/useFetch'
-import Follower from './components/Follower/Follower'
+import Follower from './components/Follower/index'
 import usePagination from './hooks/usePagination'
 const url = 'https://api.github.com/users/john-smilga/followers?per_page=100'
 
@@ -31,7 +31,12 @@ function App() {
             const image = item.avatar_url;
             const login = item.login;
             const link = item.html_url;
-            return <Follower key={index} image={image} login={login} link={link}/>
+            return <Follower 
+                    key={index} 
+                    image={image} 
+                    login={login} 
+                    link={link} 
+                  />
           })}
         </div>)}
         {!loading && (<div className="btn-container">
