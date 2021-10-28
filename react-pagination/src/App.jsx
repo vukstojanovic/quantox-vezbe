@@ -26,30 +26,34 @@ function App() {
         <div className="underline"></div>
       </div>
       <section className="followers">
-        {!loading && (<div className="container">
-          {followers.map((item, index) => {
-            const githubImage = item.avatar_url;
-            const githubLogin = item.login;
-            const githubLink = item.html_url;
-            return <Follower 
-                    key={index} 
-                    githubImage={githubImage} 
-                    githubLogin={githubLogin} 
-                    githubLink={githubLink} 
-                  />
-          })}
-        </div>)}
-        {!loading && (<div className="btn-container">
-          <button className="prev-btn" onClick={() => goToPrev(arrayOfArrays)}>prev</button>
-          {arrayOfArrays.map((item, index) => {
-            return (
-              <button key={index} className={currentPage === index ? "page-btn active-btn" : "page-btn null"} onClick={() => setCurrentPage(index)}>
-                {index + 1}
-              </button>
-            );
-          })}
-          <button className="next-btn" onClick={() => goToNext(arrayOfArrays)}>next</button>
-        </div>)}
+        {!loading && (
+          <div className="container">
+            {followers.map((item, index) => {
+              const githubImage = item.avatar_url;
+              const githubLogin = item.login;
+              const githubLink = item.html_url;
+              return <Follower 
+                      key={index} 
+                      githubImage={githubImage} 
+                      githubLogin={githubLogin} 
+                      githubLink={githubLink} 
+                    />
+            })}
+          </div>
+        )}
+        {!loading && (
+          <div className="btn-container">
+            <button className="prev-btn" onClick={() => goToPrev(arrayOfArrays)}>prev</button>
+            {arrayOfArrays.map((item, index) => {
+              return (
+                <button key={index} className={currentPage === index ? "page-btn active-btn" : "page-btn null"} onClick={() => setCurrentPage(index)}>
+                  {index + 1}
+                </button>
+              );
+            })}
+            <button className="next-btn" onClick={() => goToNext(arrayOfArrays)}>next</button>
+          </div>
+        )}
       </section>
     </main>
   )
