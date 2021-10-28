@@ -17,7 +17,7 @@ function App() {
       setArrayOfArrays(paginatedList);
       setFollowers(paginatedList[currentPage]);
     }
-  }, [loading, currentPage, data])
+  }, [loading, currentPage, data, paginate])
 
   return (
     <main>

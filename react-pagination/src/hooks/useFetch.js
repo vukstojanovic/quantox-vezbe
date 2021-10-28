@@ -17,7 +17,7 @@ export const useFetch = (link) => {
 
   useEffect(() => {
     fetchData(link)
-  }, [])
+  }, [link])
 
   return {data, loading}
 }
