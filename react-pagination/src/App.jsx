@@ -28,14 +28,14 @@ function App() {
       <section className="followers">
         {!loading && (<div className="container">
           {followers.map((item, index) => {
-            const image = item.avatar_url;
-            const login = item.login;
-            const link = item.html_url;
+            const githubImage = item.avatar_url;
+            const githubLogin = item.login;
+            const githubLink = item.html_url;
             return <Follower 
                     key={index} 
-                    image={image} 
-                    login={login} 
-                    link={link} 
+                    githubImage={githubImage} 
+                    githubLogin={githubLogin} 
+                    githubLink={githubLink} 
                   />
           })}
         </div>)}
