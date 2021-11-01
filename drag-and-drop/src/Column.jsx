@@ -11,7 +11,7 @@ function Column({id, name}) {
 
   const [{isOver}, drop] = useDrop(() => ({
     accept: "div",
-    drop: (item) => console.log(item.id),
+    drop: (item) => dropItem(item),
     collect: (monitor) => ({
       isOver: monitor.isOver()
     })
@@ -27,11 +27,11 @@ function Column({id, name}) {
     console.log(itemsList);
   }
 
-  // function dropItem(item) {
-  //   console.log(id);
-  //   const newList = itemsList.filter(item => item.id !== id);
-  //   setItemsList(filteredList);
-  // }
+  function dropItem(x) {
+    // const newList = itemsList.filter(item => item.id !== id);
+    console.log(x);
+    setItemsList(prevList => [...prevList, x]);
+  }
   
   return (
     <div className="column-container">

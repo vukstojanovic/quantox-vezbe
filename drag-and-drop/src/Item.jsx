@@ -8,7 +8,7 @@ function Item({id, itemName, itemsList, setItemsList}) {
 
   const [{isDragging}, drag] = useDrag(() => ({
     type: "div",
-    item: {id: id},
+    item: {id: id, name: itemName},
     collect: (monitor) => ({
         isDragging: monitor.isDragging()
     })
