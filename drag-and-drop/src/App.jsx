@@ -2,18 +2,22 @@
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Column from './Column';
+import { ContextProvider } from './GlobalContext';
 
-function App() { 
+function App() {
+  
+  const columnsList = ["backlog", "in progress", "complete", "on hold"];
   
   return (
-    <div className="container">
+    <ContextProvider>
+    <DndProvider backend={HTML5Backend}>
       <main>
-        <Column name={"backlog"} />
-        <Column name={"in progress"} />
-        <Column name={"complete"} />
-        <Column name={"on hold"} />
+        {columnsList.map((columnName, index) => {
+          return <Column key={index} name={columnName} />
+        })}
       </main>
-    </div>
+    </DndProvider>
+    </ContextProvider>
   );
 }
 
