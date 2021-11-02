@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDrag } from "react-dnd";
+import { useDrop } from "react-dnd";
 import { useGlobalContext } from "./GlobalContext";
 
 function Item({id, itemName, itemsList, setItemsList}) {
 
-  const {setCurrentDraggableItem} = useGlobalContext();
+  const {prevItem, setPrevItem, isDropped, setIsDropped} = useGlobalContext();
+  const itemRef = useRef(null);
 
   const [{isDragging}, drag] = useDrag(() => ({
     type: "div",
@@ -14,22 +16,48 @@ function Item({id, itemName, itemsList, setItemsList}) {
     })
   }));
 
+  const [{isOver}, drop] = useDrop(() => ({
+    accept: "div",
+    drop: (item) => dropItem(item),
+    collect: (monitor) => ({
+      isOver: monitor.isOver()
+    }),
+    hover: (item, monitor) => {
+      const itemId = item.id;
+      console.log(item.id);
+    }
+  }));
+
   useEffect(() => {
       if (isDragging) {
-          dragItem(id);
+        dragItem(id);
+        // setIsDropped(false);
+        // setPrevItem({id: id, name: itemName});
       }
-  }, [isDragging]);
+      else if (isDropped) {
+        // const filteredList = itemsList.filter(item => item.id !== prevItem.id);
+        // console.log(filteredList);
+        // setItemsList(filteredList);
+      }
+  }, [isDragging, isDropped]);
+
 
   function dragItem(id) {
-    console.log(id);
     const filteredList = itemsList.filter(item => item.id !== id);
+    const removedItem = itemsList.filter(item => item.id === id)[0];
     setItemsList(filteredList);
-    const currentItem = itemsList.filter(item => item.id === id)[0];
-    setCurrentDraggableItem(currentItem);
+    console.log(filteredList);
+  }
+
+  function dropItem(x) {
+    setIsDropped(true);
+    setItemsList(prev => [...prev, x]);
+    const newList = [...itemsList, x];
+    console.log(newList);
   }
 
   return (
-    <div ref={drag} className="element">
+    <div ref={drag} className={isDragging ? "element js-hidden" : "element"}>
         {itemName}
     </div>
   )

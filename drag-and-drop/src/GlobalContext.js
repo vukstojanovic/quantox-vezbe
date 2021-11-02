@@ -6,12 +6,18 @@ const NewContext = createContext();
 
 function ContextProvider({children}) {
 
-    const [currentDraggableItem, setCurrentDraggableItem] = useState({});
+    const [prevItem, setPrevItem] = useState([]);
+    const [idCount, setIdCount] = useState(0);
+    const [isDropped, setIsDropped] = useState(false);
 
     return (
         <NewContext.Provider value={{
-            currentDraggableItem,
-            setCurrentDraggableItem
+            prevItem,
+            setPrevItem,
+            idCount,
+            setIdCount,
+            isDropped,
+            setIsDropped
         }}>
             {children}
         </NewContext.Provider>

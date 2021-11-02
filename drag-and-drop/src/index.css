@@ -85,9 +85,9 @@ h3 {
   cursor: pointer;
 }
 
-/* .new input {
-  border-radius: 5px;
-} */
+.js-hidden {
+  display: none;
+}
 
 /* .js-visible {
   visibility: visible;
