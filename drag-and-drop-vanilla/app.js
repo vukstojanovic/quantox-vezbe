@@ -70,7 +70,9 @@ function setNewElement(inputText, index, column) {
     $deleteIcon.innerHTML = `<i class="far fa-times-circle"></i>`;
     $deleteIcon.addEventListener("click", () => {
         $element.remove();
-        updateLocalStorage(index, column);
+        document.querySelectorAll(".column").forEach((c, i) => {
+            updateLocalStorage(i, c);
+        });
     });
     $element.appendChild($deleteIcon);
 
