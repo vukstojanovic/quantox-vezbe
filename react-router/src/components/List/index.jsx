@@ -1,12 +1,13 @@
 
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 function List() {
 
     const url = 'https://api.github.com/users/john-smilga/followers?per_page=100';
     const [list, setList] = useState([]);
     const [inputValue, setInputValue] = useState("");
+    const [searchParams, setSearchParams] = useSearchParams({});
 
     async function fetchData(api) {
         try {
@@ -20,6 +21,8 @@ function List() {
 
     function handleChange(e) {
         setInputValue(e.target.value);
+        setSearchParams({search: e.target.value});
+        console.log(searchParams);
         // const filteredList  = list.filter(element => element.login.includes(inputValue));
         // setList(prev => filteredList);
     }
