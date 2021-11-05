@@ -16,18 +16,6 @@ function Item({id, itemName, itemsList, setItemsList}) {
     })
   }));
 
-  const [{isOver}, drop] = useDrop(() => ({
-    accept: "div",
-    drop: (item) => dropItem(item),
-    collect: (monitor) => ({
-      isOver: monitor.isOver()
-    }),
-    hover: (item, monitor) => {
-      const itemId = item.id;
-      console.log(item.id);
-    }
-  }));
-
   useEffect(() => {
       if (isDragging) {
         dragItem(id);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDrop } from "react-dnd";
 import { useGlobalContext } from "./GlobalContext";
 import Item from "./Item";
