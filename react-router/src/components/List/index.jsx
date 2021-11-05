@@ -6,8 +6,8 @@ function List() {
 
     const url = 'https://api.github.com/users/john-smilga/followers?per_page=100';
     const [list, setList] = useState([]);
-    const [inputValue, setInputValue] = useState("");
     const [searchParams, setSearchParams] = useSearchParams({});
+    const [inputValue, setInputValue] = useState(searchParams.get("search"));
 
     async function fetchData(api) {
         try {
@@ -21,24 +21,33 @@ function List() {
 
     function handleChange(e) {
         setInputValue(e.target.value);
-        setSearchParams({search: e.target.value});
-        console.log(searchParams);
-        // const filteredList  = list.filter(element => element.login.includes(inputValue));
-        // setList(prev => filteredList);
+        const search = e.target.value;
+        if (search) {
+            setSearchParams({search});
+        } else {
+            setSearchParams({});
+        }
     }
 
     useEffect(() => {
         fetchData(url);
-    }, [url]);
+        console.log(searchParams.get("search"));
+    }, [url, searchParams]);
 
     return (
       <div className="list">
         <h1>List of certain Github users</h1>
         <div className="input-container">
-            <input type="text" onChange={handleChange} value={inputValue} />
+            <input type="text" onChange={handleChange} value={inputValue ? inputValue : ""} />
             <button>Search</button>
         </div>
-        {list.filter(element => element.login.includes(inputValue)).map((item, index) => {
+        {list.filter(element => {
+            if (searchParams.get("search")) {
+                return element.login.includes(searchParams.get("search"));
+            }
+            return element;
+        })
+        .map((item, index) => {
             const {login} = item;
             return (
                 <Link key={index} to={`/list/${login}`}>
