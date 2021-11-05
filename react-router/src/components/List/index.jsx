@@ -33,6 +33,7 @@ function List() {
         fetchData(url);
         console.log(searchParams.get("search"));
     }, [url, searchParams]);
+    
 
     return (
       <div className="list">
