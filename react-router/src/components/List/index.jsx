@@ -32,8 +32,7 @@ function List() {
     useEffect(() => {
         fetchData(url);
         console.log(searchParams.get("search"));
-        console.log(list);
-    }, [url, searchParams, list]);
+    }, [url, searchParams]);
     
 
     return (
