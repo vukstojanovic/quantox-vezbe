@@ -32,7 +32,8 @@ function List() {
     useEffect(() => {
         fetchData(url);
         console.log(searchParams.get("search"));
-    }, [url, searchParams]);
+        console.log(list);
+    }, [url, searchParams, list]);
     
 
     return (
@@ -48,10 +49,10 @@ function List() {
             }
             return element;
         })
-        .map((item, index) => {
-            const {login} = item;
+        .map(item => {
+            const {login, id} = item;
             return (
-                <Link key={index} to={`/list/${login}`}>
+                <Link key={id} to={`/list/${login}`}>
                     <h3>{login}</h3>
                 </Link>
             )
