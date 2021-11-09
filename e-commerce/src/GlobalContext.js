@@ -14,10 +14,22 @@ function ContextProvider({children}) {
 
     const [cartItems, setCartItems] = useState(getFromLocal());
 
+    function addItemToCart(someId, someImg, someName, somePrice) {
+        const currentItem = {id: someId, image: someImg, name: someName, currentPrice: somePrice, amount: 1};
+        setCartItems(prev => {
+            const ids = prev.map(item => item.id);
+            if (ids.includes(currentItem.id)) {
+                return prev;
+            }
+            return [...prev, currentItem];
+        });
+    }
+
     return (
         <NewContext.Provider value={{
             cartItems,
-            setCartItems
+            setCartItems,
+            addItemToCart
         }}>
             {children}
         </NewContext.Provider>

@@ -10,17 +10,6 @@ function Products() {
     const [chosenItems, setChosenItems] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [searchParams, setSearchParams] = useSearchParams({});
-    let costIfZero = 25;
-
-    function changeZeroCost() {
-        costIfZero++;
-        if (costIfZero === 40) {
-            costIfZero = costIfZero * 2
-        } else if (costIfZero === 90) {
-            costIfZero = costIfZero / 2 + 100;
-        }
-        return costIfZero;
-    }
 
     function filterData() {
         const search = inputValue;
@@ -33,11 +22,11 @@ function Products() {
 
     useEffect(() => {
         if (!isLoading) {
-            console.log(data[167].item);
+            console.log(data[183].item);
             const items = [...data.slice(167, 187), ...data.slice(300, 325), ...data.slice(333, 348), ...data.slice(415, 421), ...data.slice(522, 532), ...data.slice(600, 616),  ...data.slice(676, 690), ...data.slice(1100, 1128), ...data.slice(1135, 1200)];
             setChosenItems(items);
         }
-    }, [isLoading]);
+    }, [data, isLoading]);
 
     if (isLoading) {
         return (
@@ -60,7 +49,8 @@ function Products() {
                     return obj;
                 })
                 .map(obj => {
-                    const currentPrice = obj.item.cost === 0 ? changeZeroCost() : obj.item.cost;
+                    const costIfZero = Number(obj.lastUpdate.toString().slice(-3));
+                    const currentPrice = obj.item.cost === 0 ? costIfZero : obj.item.cost;
                     return (
                         <Product 
                             key={obj.itemId}

@@ -19,6 +19,8 @@ function Cart() {
             sum += item.currentPrice * item.amount;
         });
         setTotal(sum);
+        const stringified = JSON.stringify(cartItems);
+        localStorage.setItem("cartItems", stringified);
     }, [cartItems]);
 
     if (cartItems.length === 0) {
@@ -39,7 +41,12 @@ function Cart() {
             <div className="cart-products">
                 {cartItems.map(item => {
                     const {id} = item;
-                    return <CartItem key={id} {...item} />;
+                    return (
+                        <CartItem 
+                            key={id} 
+                            {...item} 
+                        />
+                    )
                 })}
             </div>
             <div className="bottom-cart">
