@@ -1,26 +1,33 @@
 import { useEffect } from 'react';
 import { useGlobalContext } from './GlobalContext';
+import { Link } from 'react-router-dom';
 
-function Product({id, image, name, cost, description}) {
+function Product({id, image, name, currentPrice, description}) {
 
     const {cartItems, setCartItems} = useGlobalContext();
 
     useEffect(() => {
-        console.log(cartItems);
+        // console.log(cartItems);
         const stringified = JSON.stringify(cartItems);
         localStorage.setItem("cartItems", stringified);
     }, [cartItems]);
 
     function addItemToCart() {
-        setCartItems(prev => [...prev, {id: id, image: image, name: name, cost: currentPrice}]);
+        const currentItem = {id: id, image: image, name: name, currentPrice: currentPrice, amount: 1};
+        setCartItems(prev => {
+            const ids = prev.map(item => item.id);
+            if (ids.includes(currentItem.id)) {
+                return prev;
+            }
+            return [...prev, currentItem];
+        });
     }
-
-    const costIfZero =  25;
-    const currentPrice = cost === 0 ? costIfZero : cost;
 
     return (
         <div className="product">
-            <img src={image} alt="img_product" />
+            <Link to={`/products/${id}`}>
+                <img src={image} alt="img_product" />
+            </Link>
             <div className="name-and-price">
                 <span className="name">{name}</span>
                 <span className="price">{currentPrice}$</span>

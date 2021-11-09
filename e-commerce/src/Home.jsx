@@ -6,7 +6,7 @@ function Home() {
         <div className="home">
             <h1>
                 Welcome to Fortnite E-commerce store. <br />
-                Equip your hero with newest epic gear.
+                Checkout list of our products and equip your hero with newest epic gear.
             </h1>
         </div>
     )
