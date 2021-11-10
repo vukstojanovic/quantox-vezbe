@@ -4,22 +4,13 @@ import { useGlobalContext } from '../../context/GlobalContext';
 function CartItem({id, image, name, currentPrice, amount}) {
 
     const {cartItems, setCartItems} = useGlobalContext();
-    let cartItemsCopy = [...cartItems];
-    let currentCartItem = cartItemsCopy.find(item => item.id === id);
-    let currentCartIndex = cartItemsCopy.indexOf(currentCartItem);
 
     function increaseAmont() {
-        currentCartItem.amount += 1;
-        cartItemsCopy[currentCartIndex] = currentCartItem;
-        setCartItems(cartItemsCopy);
+        setCartItems(prev => prev.map(item => item.id === id ? {...item, amount: item.amount + 1} : item));
     }
 
     function decreaseAmont() {
-        if (currentCartItem.amount !== 1) {
-            currentCartItem.amount -= 1;
-        }
-        cartItemsCopy[currentCartIndex] = currentCartItem;
-        setCartItems(cartItemsCopy);
+        setCartItems(prev => prev.map(item => item.id === id ? {...item, amount: item.amount > 1 ? item.amount - 1 : 1} : item));
     }
 
     function removeItem() {

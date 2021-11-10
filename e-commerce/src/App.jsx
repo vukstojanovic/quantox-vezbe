@@ -1,9 +1,9 @@
 
 import Nav from './components/Nav/index';
-import Home from './components/Home/index';
-import Products from './components/Products/index';
-import ProductDetails from './components/ProductDetails/index';
-import Cart from './components/Cart/index';
+import Home from './pages/Home/index';
+import Products from './pages/Products/index';
+import ProductDetails from './pages/ProductDetails/index';
+import Cart from './pages/Cart/index';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {ContextProvider} from './context/GlobalContext';
 

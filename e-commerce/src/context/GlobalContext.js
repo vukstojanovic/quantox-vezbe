@@ -14,14 +14,13 @@ function ContextProvider({children}) {
 
     const [cartItems, setCartItems] = useState(getFromLocal());
 
-    function addItemToCart(someId, someImg, someName, somePrice) {
-        const currentItem = {id: someId, image: someImg, name: someName, currentPrice: somePrice, amount: 1};
+    function addItemToCart(itemObject) {
         setCartItems(prev => {
             const ids = prev.map(item => item.id);
-            if (ids.includes(currentItem.id)) {
+            if (ids.includes(itemObject.id)) {
                 return prev;
             }
-            return [...prev, currentItem];
+            return [...prev, itemObject];
         });
     }
 

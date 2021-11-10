@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import Product from '../Product/index';
+import Product from '../../components/Product/index';
 import useFetch from '../../hooks/useFetch';
 import { useSearchParams } from 'react-router-dom';
 
@@ -49,16 +49,17 @@ function Products() {
                     return obj;
                 })
                 .map(obj => {
-                    const costIfZero = Number(obj.lastUpdate.toString().slice(-3));
-                    const currentPrice = obj.item.cost === 0 ? costIfZero : obj.item.cost;
+                    // const costIfZero = Number(obj.lastUpdate.toString().slice(-3));
+                    // const currentPrice = obj.item.cost === 0 ? costIfZero : obj.item.cost;
                     return (
                         <Product 
                             key={obj.itemId}
-                            id={obj.itemId} 
-                            image={obj.item.images.icon} 
-                            name={obj.item.name} 
-                            currentPrice={currentPrice} 
-                            description={obj.item.description} 
+                            {...obj}
+                            // id={obj.itemId} 
+                            // image={obj.item.images.icon} 
+                            // name={obj.item.name} 
+                            // currentPrice={currentPrice} 
+                            // description={obj.item.description} 
                         />
                     )
                 })}

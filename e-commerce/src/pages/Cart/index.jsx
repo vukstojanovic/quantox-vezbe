@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
-import CartItem from '../CartItem/index';
+import { useEffect, useState } from 'react';
+import CartItem from '../../components/CartItem/index';
 import { useGlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 
@@ -7,19 +7,17 @@ function Cart() {
 
     const {cartItems, setCartItems} = useGlobalContext();
     const [total, setTotal] = useState(0);
-    let sum = useRef(0);
 
     function emptyCart() {
         setCartItems([]);
     }
 
     useEffect(() => {
+        let sum = 0;
         cartItems.forEach(item => {
-            sum.current += item.currentPrice * item.amount;
+            sum += item.currentPrice * item.amount;
         });
-        // const sum = cartItems.reduce((prev, next) => prev.currentPrice * prev.amount + next.currentPrice * next.amount, [0]);
-        setTotal(sum.current);
-        sum.current = 0;
+        setTotal(sum);
         const stringified = JSON.stringify(cartItems);
         localStorage.setItem("cartItems", stringified);
     }, [cartItems]);

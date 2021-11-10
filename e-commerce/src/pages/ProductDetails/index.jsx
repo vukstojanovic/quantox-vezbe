@@ -30,18 +30,19 @@ function ProductDetails() {
         console.log(data.item);
         const {name, cost, description, rarity, series} = data.item;
         const image = data.item.images.icon;
-        const price = cost === 0 ? Number(data.lastUpdate.toString().slice(-3)) : cost;
+        const currentPrice = cost === 0 ? Number(data.lastUpdate.toString().slice(-3)) : cost;
+        const cartObject = {id, image, name, currentPrice, amount: 1};
         return (
             <div className="product-details">
                 <img src={image} alt="img_product" />
                 <div className="text-details">
                     <p><span>Name:</span> <br/> {name}</p>
-                    <p><span>Price:</span> <br/> {price}$</p>
+                    <p><span>Price:</span> <br/> {currentPrice}$</p>
                     <p><span>Description:</span> <br/> {description}</p>
                     <p><span>Rarity:</span> <br/> {rarity}</p>
                     <p><span>Series:</span> <br/> {series ? series : "N/A"}</p>
                     <div className="basket">
-                        <i className="fas fa-cart-plus" onClick={() => addItemToCart(id, image, name, price)}></i>
+                        <i className="fas fa-cart-plus" onClick={() => addItemToCart(cartObject)}></i>
                     </div>
                 </div>
             </div>

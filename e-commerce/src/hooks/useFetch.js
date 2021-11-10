@@ -12,10 +12,10 @@ function useFetch(url) {
             const dataList = await fetch(api);
             const result = await dataList.json();
             setData(result.data);
-            setIsLoading(false);
         } catch (error) {
             console.log(error);
         }
+        setIsLoading(false);
     }
 
     useEffect(() => {
