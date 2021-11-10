@@ -1,11 +1,11 @@
 
-import Nav from './Nav';
-import Home from './Home';
-import Products from './Products';
-import ProductDetails from './ProductDetails';
-import Cart from './Cart';
+import Nav from './components/Nav/index';
+import Home from './components/Home/index';
+import Products from './components/Products/index';
+import ProductDetails from './components/ProductDetails/index';
+import Cart from './components/Cart/index';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {ContextProvider} from './GlobalContext';
+import {ContextProvider} from './context/GlobalContext';
 
 function App() {
   return (

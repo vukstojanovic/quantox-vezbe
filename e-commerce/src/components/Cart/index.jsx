@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import CartItem from './CartItem';
-import { useGlobalContext } from './GlobalContext';
+import CartItem from '../CartItem/index';
+import { useGlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 
 function Cart() {

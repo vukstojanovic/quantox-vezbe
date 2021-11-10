@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { useGlobalContext } from './GlobalContext';
-import useFetch from './useFetch';
+import { useGlobalContext } from '../../context/GlobalContext';
+import useFetch from '../../hooks/useFetch';
 
 function ProductDetails() {
 

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from './GlobalContext';
+import { useGlobalContext } from '../../context/GlobalContext';
 
 function Nav() {
 
-    const {cartItems, setCartItems} = useGlobalContext();
+    const {cartItems} = useGlobalContext();
 
     return (
         <nav>

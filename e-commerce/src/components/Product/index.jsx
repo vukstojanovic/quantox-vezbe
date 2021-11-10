@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useGlobalContext } from './GlobalContext';
+import { useGlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
 
 function Product({id, image, name, currentPrice, description}) {

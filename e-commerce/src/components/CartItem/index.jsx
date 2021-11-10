@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useGlobalContext } from './GlobalContext';
+import { useGlobalContext } from '../../context/GlobalContext';
 
 function CartItem({id, image, name, currentPrice, amount}) {
 

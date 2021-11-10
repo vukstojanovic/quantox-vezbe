@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
-import Product from './Product';
-import useFetch from './useFetch';
+import Product from '../Product/index';
+import useFetch from '../../hooks/useFetch';
 import { useSearchParams } from 'react-router-dom';
 
 function Products() {
