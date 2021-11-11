@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useGlobalContext } from '../../context/GlobalContext';
+import { Link } from 'react-router-dom';
 
 function CartItem({id, image, name, currentPrice, amount}) {
 
@@ -26,7 +27,9 @@ function CartItem({id, image, name, currentPrice, amount}) {
 
     return (
         <div key={id} className="product">
-            <img src={image} alt="img_product" />
+            <Link to={`/cart/${id}`}>
+                <img src={image} alt="img_product" />
+            </Link>
             <div className="name-and-price">
                 <span className="name">{name}</span>
                 <span className="price">Price: {currentPrice * amount}$</span>

@@ -18,6 +18,7 @@ function App() {
             <Route exact path="/products" element={<Products />} />
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/cart/:id" element={<ProductDetails />} />
           </Routes>
         </main>
       </ContextProvider>
