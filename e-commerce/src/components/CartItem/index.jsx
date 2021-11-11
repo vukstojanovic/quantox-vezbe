@@ -27,7 +27,7 @@ function CartItem({id, image, name, currentPrice, amount}) {
 
     return (
         <div key={id} className="product">
-            <Link to={`/cart/${id}`}>
+            <Link to={`/products/${id}`}>
                 <img src={image} alt="img_product" />
             </Link>
             <div className="name-and-price">
