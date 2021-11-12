@@ -23,8 +23,10 @@ function Products() {
     useEffect(() => {
         if (!isLoading) {
             console.log(data[183].item);
-            const items = [...data.slice(167, 187), ...data.slice(300, 325), ...data.slice(333, 348), ...data.slice(415, 421), ...data.slice(522, 532), ...data.slice(600, 616),  ...data.slice(676, 690), ...data.slice(1100, 1128), ...data.slice(1135, 1200)];
+            const items = [...data.slice(168, 187), ...data.slice(300, 325), ...data.slice(337, 348), ...data.slice(418, 421), ...data.slice(522, 532), ...data.slice(600, 616),  ...data.slice(680, 690), ...data.slice(1100, 1128), ...data.slice(1135, 1200)];
             setChosenItems(items);
+            console.log(items);
+            console.log(...data.slice(600, 616));
         }
     }, [data, isLoading]);
 
