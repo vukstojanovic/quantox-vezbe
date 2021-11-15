@@ -1,9 +1,11 @@
+
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from '../../context/GlobalContext';
+import { useSelector } from 'react-redux';
 
 function Nav() {
 
-    const {cartItems} = useGlobalContext();
+    const cartItems = useSelector(state => state);
+    console.log(cartItems);
 
     return (
         <nav>

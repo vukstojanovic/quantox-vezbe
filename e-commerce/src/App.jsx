@@ -4,13 +4,11 @@ import Home from './pages/Home/index';
 import Products from './pages/Products/index';
 import ProductDetails from './pages/ProductDetails/index';
 import Cart from './pages/Cart/index';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {ContextProvider} from './context/GlobalContext';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <BrowserRouter>
-      <ContextProvider>
         <Nav />
         <main>
           <Routes>
@@ -20,7 +18,6 @@ function App() {
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>
-      </ContextProvider>
     </BrowserRouter>
   );
 }

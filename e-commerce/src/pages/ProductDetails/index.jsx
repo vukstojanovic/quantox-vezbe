@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { useGlobalContext } from '../../context/GlobalContext';
 import useFetch from '../../hooks/useFetch';
+import { add } from '../../actions/index';
 
 function ProductDetails() {
 
-    const {cartItems, addItemToCart} = useGlobalContext();
+    const cartItems = useSelector(state => state);
+    const dispatch = useDispatch();
     const {id} = useParams();
     const specificProductApi = `https://fortnite-api.theapinetwork.com/item/get?id=${id}`;
 
@@ -42,7 +44,7 @@ function ProductDetails() {
                     <p><span>Rarity:</span> <br/> {rarity}</p>
                     <p><span>Series:</span> <br/> {series ? series : "N/A"}</p>
                     <div className="basket">
-                        <i className="fas fa-cart-plus" onClick={() => addItemToCart(cartObject)}></i>
+                        <i className="fas fa-cart-plus" onClick={() => dispatch(add(cartObject))}></i>
                     </div>
                 </div>
             </div>

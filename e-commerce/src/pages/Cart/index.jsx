@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import CartItem from '../../components/CartItem/index';
-import { useGlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { empty } from '../../actions/index';
 
 function Cart() {
 
-    const {cartItems, setCartItems} = useGlobalContext();
+    const cartItems = useSelector(state => state);
+    const dispatch = useDispatch();
     const [total, setTotal] = useState(0);
-
-    function emptyCart() {
-        setCartItems([]);
-    }
 
     useEffect(() => {
         let sum = 0;
@@ -51,7 +49,7 @@ function Cart() {
             <div className="bottom-cart">
                 <div className="total">Subtotal: {total} $</div>
                 <div className="buttons">
-                    <button className="empty" onClick={emptyCart}>empty cart</button>
+                    <button className="empty" onClick={() => dispatch(empty())}>empty cart</button>
                     <Link to="/products">
                         <button className="checkout">checkout</button>
                     </Link>

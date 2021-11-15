@@ -1,10 +1,13 @@
+
 import { useEffect } from 'react';
-import { useGlobalContext } from '../../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { add } from '../../actions/index';
 
 function Product({itemId, item, lastUpdate}) {
 
-    const {cartItems, addItemToCart} = useGlobalContext();
+    const cartItems = useSelector(state => state);
+    const dispatch = useDispatch();
 
     const {name, description, cost} = item;
     const id = itemId;
@@ -30,7 +33,7 @@ function Product({itemId, item, lastUpdate}) {
             </div>
             <div className="description">{description}</div>
             <div className="basket">
-                <i className="fas fa-cart-plus" onClick={() => addItemToCart(cartObject)} ></i>
+                <i className="fas fa-cart-plus" onClick={() => dispatch(add(cartObject))} ></i>
             </div>
         </div>
     )
