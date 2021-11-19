@@ -7,7 +7,7 @@ import Cart from './pages/Cart/index';
 import Signup from './pages/Signup/index';
 import Login from './pages/Login/index';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProtectedRoute  from './ProtectedRoute';
+import ProtectedRoute  from './protectedRoute/index';
 import React from 'react';
 
 function App() {
