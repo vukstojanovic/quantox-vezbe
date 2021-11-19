@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate }  from 'react-router-dom';
 import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../../actions/index';
 
 function Login() {
@@ -11,7 +11,7 @@ function Login() {
     const [password, setPassword] = useState("");
     let navigate = useNavigate();
 
-    const isLogged = useSelector(state => state.loginReducer);
+    // const isLogged = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
 
     function handleSubmit(e) {
