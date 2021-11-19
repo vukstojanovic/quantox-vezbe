@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -124,14 +126,12 @@ main {
 }
 
 .product {
-  /* background-color: yellow; */
   border: 2px solid grey;
   border-radius: 8px;
   padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* min-height: 60vh; */
 }
 
 .description {
@@ -164,6 +164,7 @@ main {
 
 .cart p {
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .cart-products {
@@ -171,11 +172,6 @@ main {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-
-/* .cart-products .product img {
-  display: block;
-  text-align: center;
-} */
 
 .name-and-price {
   font-size: 18px;
@@ -278,4 +274,52 @@ main {
   position: absolute;
   bottom: 10px;
   right: 20px;
+}
+
+.form-container {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+
+}
+
+.username-container, .password-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.username-container label, .password-container label {
+  margin-bottom: 8px;
+}
+
+.username-container input, .password-container input {
+  padding: 5px;
+}
+
+.form-container form {
+  min-width: 400px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 40px 15px;
+  box-shadow: 5px 10px 25px grey;
+}
+
+.form-btn {
+  padding: 8px;
+  color: white;
+  background-color: rgb(69, 113, 131);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 15px;
 }

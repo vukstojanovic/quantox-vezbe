@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
 
-    const cartItems = useSelector(state => state);
-    console.log(cartItems);
+    const cartItems = useSelector(state => state.cartReducer);
+    // const isLogged = useSelector(state => state.loginReducer);
 
     return (
         <nav>
@@ -15,6 +15,12 @@ function Nav() {
                 </Link>
                 <Link to="/products">
                     <li>Our Products</li>
+                </Link>
+                <Link to="/signup">
+                    <li>Sign Up</li>
+                </Link>
+                <Link to="/login">
+                    <li>Login</li>
                 </Link>
             </ul>
             <Link to="/cart">

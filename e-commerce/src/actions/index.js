@@ -34,4 +34,10 @@ function remove(id) {
     }
 }
 
-export {add, empty, increase, decrease, remove}
+function login() {
+    return {
+        type: "LOGIN"
+    }
+}
+
+export {add, empty, increase, decrease, remove, login}
