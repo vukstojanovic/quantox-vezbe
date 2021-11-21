@@ -19,13 +19,13 @@ function App() {
           <Routes>
             <Route path="/" element={
                 <ProtectedRoute>
-                    <Home />
+                  <Home />
                 </ProtectedRoute>
               } 
             />
             <Route path="/products" element={
                 <ProtectedRoute>
-                      <Products />
+                  <Products />
                 </ProtectedRoute>
               }
             />
