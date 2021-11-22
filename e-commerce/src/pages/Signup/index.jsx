@@ -27,7 +27,7 @@ function Signup() {
                 console.log(err);
                 alert("There's a problem with username or password");
             })
-            // navigate('/login');
+
         }
     }
 

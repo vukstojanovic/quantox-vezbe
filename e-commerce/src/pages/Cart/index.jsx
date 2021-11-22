@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import CartItem from '../../components/CartItem/index';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { empty } from '../../actions/index';
+import { empty, logout } from '../../actions/index';
+import axios from 'axios';
 
 function Cart() {
 
@@ -31,6 +32,43 @@ function Cart() {
         )
     }
 
+    function sendOrder() {
+
+        let body = {
+            "products": cartItems
+        }
+
+        let accessToken = localStorage.accessToken;
+
+        axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+        .then(response => {
+            console.log("Order sent");
+        })
+        .catch(err => {
+            console.log("error happened");
+            let refreshToken = localStorage.refreshToken;
+            let token = {
+                "token": refreshToken
+            };
+
+            axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}})
+            .then(res => {
+                console.log("refreshed");
+                localStorage.setItem("accessToken", res.data.accessToken);
+                accessToken = res.data.accessToken;
+                axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+                .then(newResponse => {
+                    console.log("order sent")
+                })
+                .catch(err => {
+                    dispatch(logout());
+                    
+                })
+            });
+        })
+
+    }
+
     return (
         <div className="cart">
             <h2>Your shopping cart</h2>
@@ -50,9 +88,7 @@ function Cart() {
                 <div className="total">Subtotal: {total} $</div>
                 <div className="buttons">
                     <button className="empty" onClick={() => dispatch(empty())}>empty cart</button>
-                    <Link to="/products">
-                        <button className="checkout">checkout</button>
-                    </Link>
+                    <button className="checkout" onClick={sendOrder}>checkout</button>
                 </div>
             </div>
         </div>

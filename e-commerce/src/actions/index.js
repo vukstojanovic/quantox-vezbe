@@ -40,4 +40,10 @@ function login() {
     }
 }
 
-export {add, empty, increase, decrease, remove, login}
+function logout() {
+    return {
+        type: "LOGOUT"
+    }
+}
+
+export {add, empty, increase, decrease, remove, login, logout}

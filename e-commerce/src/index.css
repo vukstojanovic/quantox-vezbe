@@ -244,6 +244,7 @@ main {
 
 .empty-cart {
   text-align: center;
+  margin-top: 5vh;
 }
 
 .product-details {
@@ -322,4 +323,8 @@ main {
   width: 100%;
   cursor: pointer;
   margin-top: 15px;
+}
+
+.js-hidden {
+  display: none;
 }
