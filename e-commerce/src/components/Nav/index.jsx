@@ -18,6 +18,9 @@ function Nav() {
                 <Link to="/products">
                     <li>Our Products</li>
                 </Link>
+                <Link to="/dashboard">
+                    <li>Dashboard</li>
+                </Link>
                 <Link to="/signup">
                     <li className={isLogged ? "js-hidden" : ""}>Sign Up</li>
                 </Link>
@@ -25,9 +28,6 @@ function Nav() {
                     <li className={isLogged ? "js-hidden" : ""}>Login</li>
                 </Link>
                     <li className={isLogged ? "" : "js-hidden"} onClick={() => dispatch(logout())}>Logout</li>
-                {/* <Link to="/dashboard">
-                    <li>Dashboard</li>
-                </Link> */}
             </ul>
             <Link to="/cart">
                 <div className="cart-container">

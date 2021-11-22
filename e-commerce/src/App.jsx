@@ -9,6 +9,7 @@ import Login from './pages/Login/index';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoute  from './protectedRoute/index';
 import React from 'react';
+import Dashboard from './pages/Dashboard/index';
 
 function App() {
 
@@ -39,6 +40,12 @@ function App() {
                 <ProtectedRoute>
                   <Cart />
                 </ProtectedRoute>
+              } 
+            />
+            <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
               } 
             />
             <Route path="/signup" element={<Signup />} />

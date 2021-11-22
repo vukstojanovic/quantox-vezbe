@@ -10,7 +10,6 @@ function CartItem({id, image, name, currentPrice, amount}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(cartItems);
         const stringified = JSON.stringify(cartItems);
         localStorage.setItem("cartItems", stringified);
     }, [cartItems]);

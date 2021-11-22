@@ -1,32 +1,53 @@
 
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { logout } from '../../actions/index';
 
-// function Dashboard() {
+function Dashboard() {
 
-//     return (
-//         <div className="cart">
-//             <h2>Your shopping cart</h2>
-//             <p>Item types: {cartItems.length}, Total number: {cartItems.map(item => item.amount).reduce((prev, next) => prev + next)}</p>
-//             <div className="cart-products">
-//                 {cartItems.map(item => {
-//                     const {id} = item;
-//                     return (
-//                         <CartItem 
-//                             key={id} 
-//                             {...item} 
-//                         />
-//                     )
-//                 })}
-//             </div>
-//             <div className="bottom-cart">
-//                 <div className="total">Subtotal: {total} $</div>
-//                 <div className="buttons">
-//                     <button className="empty" onClick={() => dispatch(empty())}>empty cart</button>
-//                     <button className="checkout" onClick={sendOrder}>checkout</button>
-//                 </div>
-//             </div>
-//         </div>
-//     )
+    // const {data, loading} = useFetch("http://localhost:3001/purchases");
+    const [shoppingHistory, setShoppingHistory] = useState([]);
+    const dispatch = useDispatch();
 
-// }
+    useEffect(() => {
+        let accessToken = localStorage.accessToken;
+        axios.get("http://localhost:3001/purchases", {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(err => {
+            console.log(err);
+            let refreshToken = localStorage.refreshToken;
+            let token = {
+                "token": refreshToken
+            };
+            axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}})
+            .then(res => {
+                console.log("refreshed dashboard");
+                localStorage.setItem("accessToken", res.data.accessToken);
+                accessToken = res.data.accessToken;
+                axios.get("http://localhost:3001/purchases", {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+                .then(newResponse => {
+                    console.log("renewed dashboard");
+                    console.log(newResponse.data);
+                })
+                .catch(err => {
+                    dispatch(logout());
+                })
+            });
+        })
+    }, []);
 
-// export default Dashboard;
+    return (
+        <div className="dashboard">
+            <h1>Dashboard</h1>
+            <ul>
+
+            </ul>
+        </div>
+    )
+
+}
+
+export default Dashboard;
