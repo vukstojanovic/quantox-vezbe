@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import useFetch from '../../hooks/useFetch';
-import { add } from '../../actions/index';
+import { add } from '../../actions/cartActions';
 
 function ProductDetails() {
 

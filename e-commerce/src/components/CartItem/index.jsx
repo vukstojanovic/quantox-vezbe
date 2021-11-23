@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increase, decrease, remove } from '../../actions/index';
+import { increase, decrease, remove } from '../../actions/cartActions';
 import { Link } from 'react-router-dom';
 
 function CartItem({id, image, name, currentPrice, amount}) {

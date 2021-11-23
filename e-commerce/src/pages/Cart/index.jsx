@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import CartItem from '../../components/CartItem/index';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { empty } from '../../actions/index';
+import { empty } from '../../actions/cartActions';
 import axios from 'axios';
 
 function Cart() {
@@ -32,30 +32,30 @@ function Cart() {
         )
     }
 
-    async function postPurchases(body, accessToken) {
+    // async function postPurchases(body, accessToken) {
 
-        try {
-            let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
-            return response;
-        } catch (err) {
-            console.log(err);
-        }
-    }
+    //     try {
+    //         let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
+    //         return response;
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
 
-    async function postToken() {
+    // async function postToken() {
 
-        let refreshToken = localStorage.refreshToken;
-        let token = {
-            "token": refreshToken
-        };
+    //     let refreshToken = localStorage.refreshToken;
+    //     let token = {
+    //         "token": refreshToken
+    //     };
 
-        try {
-            let response = axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}});
-            return response;
-        } catch (err) {
-            console.log("server down probably");
-        }
-    }
+    //     try {
+    //         let response = axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}});
+    //         return response;
+    //     } catch (err) {
+    //         console.log("server down probably");
+    //     }
+    // }
 
     function sendOrder() {
 
@@ -64,13 +64,17 @@ function Cart() {
         }
 
         let accessToken = localStorage.accessToken;
-        postPurchases(body, accessToken)
+        axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
         .then(response => {
             console.log("Order sent");
         })
         .catch(err => {
             console.log("error happened");
-            postToken()
+            let refreshToken = localStorage.refreshToken;
+            let token = {
+                "token": refreshToken
+            };
+            axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}})
             .then(res => {
                 console.log("refreshed");
                 localStorage.setItem("accessToken", res.data.accessToken);
@@ -81,8 +85,9 @@ function Cart() {
                 })
                 .catch(err => {
                     console.log("another error");
-                    window.localStorage.clear();
-                    // dispatch(logout());
+                    localStorage.removeItem("accessToken");
+                    localStorage.removeItem("refreshToken");
+                    window.location.reload();
                 })
             });
         })

@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { add } from '../../actions/index';
+import { add } from '../../actions/cartActions';
 
 function Product({itemId, item, lastUpdate}) {
 

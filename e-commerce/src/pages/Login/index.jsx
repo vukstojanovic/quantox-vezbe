@@ -27,6 +27,7 @@ function Login() {
                     localStorage.setItem("refreshToken", response.data.refreshToken);
                     localStorage.setItem("currentUsername", username);
                     navigate('/');
+                    window.location.reload();
                 } else {
                     alert("Wrong username or password!");
                 }

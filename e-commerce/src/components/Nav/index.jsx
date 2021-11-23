@@ -6,13 +6,14 @@ import axios from 'axios';
 function Nav() {
 
     const cartItems = useSelector(state => state);
-    console.log(cartItems);
     const isLogged = localStorage.accessToken;
-
+    
     function handleLogout() {
         axios.delete("http://localhost:4000/logout", localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}});
-        localStorage.clear();
-    }
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        window.location.reload();
+    };
 
     return (
         <nav>

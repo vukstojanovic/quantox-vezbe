@@ -328,3 +328,37 @@ main {
 .js-hidden {
   display: none;
 }
+
+.dashboard-table {
+  margin-top: 70px;
+  border: 2px solid rgb(30, 51, 59);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.dashboard-table .header {
+  background-color: rgb(30, 51, 59);
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.dashboard-table div {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dashboard-table > div {
+  border-top: 2px solid rgb(30, 51, 59);
+}
+
+/* .dashboard-table > div:last-child {
+  border-bottom: transparent;
+} */
+
+/* .col-amount, .col-name {
+  font-weight: bold;
+} */
