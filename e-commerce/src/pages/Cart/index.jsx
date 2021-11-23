@@ -32,21 +32,15 @@ function Cart() {
         )
     }
 
-    // async function postPurchases() {
+    async function postPurchases(body, accessToken) {
 
-    //     let body = {
-    //         "products": cartItems
-    //     }
-
-    //     let accessToken = localStorage.accessToken;
-
-    //     try {
-    //         let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
-    //         return response;
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
+        try {
+            let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
+            return response;
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     async function postToken() {
 
@@ -70,7 +64,7 @@ function Cart() {
         }
 
         let accessToken = localStorage.accessToken;
-        axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+        postPurchases(body, accessToken)
         .then(response => {
             console.log("Order sent");
         })
