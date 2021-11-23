@@ -32,31 +32,6 @@ function Cart() {
         )
     }
 
-    // async function postPurchases(body, accessToken) {
-
-    //     try {
-    //         let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
-    //         return response;
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
-
-    // async function postToken() {
-
-    //     let refreshToken = localStorage.refreshToken;
-    //     let token = {
-    //         "token": refreshToken
-    //     };
-
-    //     try {
-    //         let response = axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}});
-    //         return response;
-    //     } catch (err) {
-    //         console.log("server down probably");
-    //     }
-    // }
-
     function sendOrder() {
 
         let body = {
