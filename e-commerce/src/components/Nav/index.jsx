@@ -2,12 +2,19 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/index';
+import axios from 'axios';
 
 function Nav() {
 
     const cartItems = useSelector(state => state.cartReducer);
     const isLogged = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
+
+    function handleLogout() {
+        axios.delete("http://localhost:4000/logout", localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}});
+        localStorage.clear();
+        dispatch(logout());
+    }
 
     return (
         <nav>
@@ -27,7 +34,7 @@ function Nav() {
                 <Link to="/login">
                     <li className={isLogged ? "js-hidden" : ""}>Login</li>
                 </Link>
-                    <li className={isLogged ? "" : "js-hidden"} onClick={() => dispatch(logout())}>Logout</li>
+                    <li className={isLogged ? "" : "js-hidden"} onClick={handleLogout}>Logout</li>
             </ul>
             <Link to="/cart">
                 <div className="cart-container">

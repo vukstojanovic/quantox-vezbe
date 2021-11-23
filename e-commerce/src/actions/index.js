@@ -1,6 +1,4 @@
 
-import axios from 'axios';
-
 function add(itemObject) {
     return {
         type: "ADD",
@@ -42,9 +40,6 @@ function login() {
 }
 
 function logout() {
-    axios.delete("http://localhost:4000/logout", localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}});
-    localStorage.removeItem("refreshToken");
-    localStorage.removeItem("accessToken");
     return {
         type: "LOGOUT"
     }
