@@ -12,11 +12,9 @@ function loginReducer(state = initState(), action) {
 
     switch (action.type) {
         case "LOGIN":
-            state = true
-            return state;
+            return true;
         case "LOGOUT":
-            state = false
-            return state;
+            return false;
         default:
             return state;
     }

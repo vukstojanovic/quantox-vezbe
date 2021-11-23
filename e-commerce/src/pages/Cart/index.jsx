@@ -62,6 +62,7 @@ function Cart() {
                 })
                 .catch(err => {
                     dispatch(logout());
+                    localStorage.clear();
                 })
             });
         })
