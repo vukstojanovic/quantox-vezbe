@@ -43,6 +43,7 @@ function Cart() {
         axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
         .then(response => {
             console.log("Order sent");
+            dispatch(empty());
         })
         .catch(err => {
             console.log("error happened");
@@ -57,7 +58,8 @@ function Cart() {
                 accessToken = res.data.accessToken;
                 axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
                 .then(newResponse => {
-                    console.log("order sent")
+                    console.log("order sent");
+                    dispatch(empty());
                 })
                 .catch(err => {
                     console.log("another error");
@@ -89,7 +91,7 @@ function Cart() {
                 <div className="total">Subtotal: {total} $</div>
                 <div className="buttons">
                     <button className="empty" onClick={() => dispatch(empty())}>empty cart</button>
-                    <button className="checkout" onClick={sendOrder}>checkout</button>
+                    <button className="checkout" onClick={sendOrder}>buy</button>
                 </div>
             </div>
         </div>
