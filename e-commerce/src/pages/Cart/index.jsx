@@ -32,21 +32,21 @@ function Cart() {
         )
     }
 
-    async function postPurchases() {
+    // async function postPurchases() {
 
-        let body = {
-            "products": cartItems
-        }
+    //     let body = {
+    //         "products": cartItems
+    //     }
 
-        let accessToken = localStorage.accessToken;
+    //     let accessToken = localStorage.accessToken;
 
-        try {
-            let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
-            return response;
-        } catch (err) {
-            console.log(err);
-        }
-    }
+    //     try {
+    //         let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
+    //         return response;
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
 
     async function postToken() {
 
