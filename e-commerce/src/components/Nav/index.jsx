@@ -10,6 +10,8 @@ function Nav() {
     const isLogged = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
     // const isLogged = localStorage.accessToken;
+
+    console.log("isLogged is:" + isLogged + "!!!!!");
     
     function handleLogout() {
         axios.delete("http://localhost:4000/logout", localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}});
