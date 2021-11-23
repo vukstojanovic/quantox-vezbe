@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { logout } from '../../actions/index';
@@ -7,7 +7,7 @@ import { logout } from '../../actions/index';
 function Dashboard() {
 
     // const {data, loading} = useFetch("http://localhost:3001/purchases");
-    const [shoppingHistory, setShoppingHistory] = useState([]);
+    // const [shoppingHistory, setShoppingHistory] = useState([]);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -37,7 +37,7 @@ function Dashboard() {
                 })
             });
         })
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="dashboard">
