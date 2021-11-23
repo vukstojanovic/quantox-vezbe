@@ -2,13 +2,14 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import React from "react";
-// import { useDispatch } from "react-redux";
+import { logout } from "../../actions/loginActions";
+import { useDispatch } from "react-redux";
 
 function Dashboard() {
 
     const [shoppingHistory, setShoppingHistory] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setIsLoading(true);
@@ -44,11 +45,11 @@ function Dashboard() {
                     console.log("final dashboard error");
                     localStorage.removeItem("accessToken");
                     localStorage.removeItem("refreshToken");
-                    window.location.reload();
+                    dispatch(logout());
                 })
             });
         })
-    }, []);
+    }, [dispatch]);
 
     if (isLoading) {
         return <h1>Dashboard loading...</h1>

@@ -2,11 +2,14 @@
 import { useState } from 'react';
 import { useNavigate }  from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { login } from '../../actions/loginActions';
 
 function Login() {
     
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
     let navigate = useNavigate();
 
     function handleSubmit(e) {
@@ -27,7 +30,7 @@ function Login() {
                     localStorage.setItem("refreshToken", response.data.refreshToken);
                     localStorage.setItem("currentUsername", username);
                     navigate('/');
-                    window.location.reload();
+                    dispatch(login());
                 } else {
                     alert("Wrong username or password!");
                 }

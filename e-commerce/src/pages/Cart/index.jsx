@@ -3,11 +3,12 @@ import CartItem from '../../components/CartItem/index';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { empty } from '../../actions/cartActions';
+import { logout } from '../../actions/loginActions';
 import axios from 'axios';
 
 function Cart() {
 
-    const cartItems = useSelector(state => state);
+    const cartItems = useSelector(state => state.cartReducer);
     const dispatch = useDispatch();
     const [total, setTotal] = useState(0);
 
@@ -62,7 +63,7 @@ function Cart() {
                     console.log("another error");
                     localStorage.removeItem("accessToken");
                     localStorage.removeItem("refreshToken");
-                    window.location.reload();
+                    dispatch(logout());
                 })
             });
         })

@@ -6,7 +6,7 @@ import { add } from '../../actions/cartActions';
 
 function Product({itemId, item, lastUpdate}) {
 
-    const cartItems = useSelector(state => state);
+    const cartItems = useSelector(state => state.cartReducer);
     const dispatch = useDispatch();
 
     const {name, description, cost} = item;
