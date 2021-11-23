@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import axios from 'axios';
 import { useDispatch } from "react-redux";
-import { logout } from '../../actions/index';
 
 function Dashboard() {
 
@@ -33,7 +32,8 @@ function Dashboard() {
                     console.log(newResponse.data);
                 })
                 .catch(err => {
-                    dispatch(logout());
+                    // dispatch(logout());
+                    localStorage.clear();
                 })
             });
         })

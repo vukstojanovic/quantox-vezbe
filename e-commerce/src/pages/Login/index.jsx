@@ -2,17 +2,12 @@
 import { useState } from 'react';
 import { useNavigate }  from 'react-router-dom';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { login } from '../../actions/index';
 
 function Login() {
     
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     let navigate = useNavigate();
-
-    // const isLogged = useSelector(state => state.loginReducer);
-    const dispatch = useDispatch();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -31,7 +26,6 @@ function Login() {
                     localStorage.setItem("accessToken", response.data.accessToken);
                     localStorage.setItem("refreshToken", response.data.refreshToken);
                     localStorage.setItem("currentUsername", username);
-                    dispatch(login());
                     navigate('/');
                 } else {
                     alert("Wrong username or password!");

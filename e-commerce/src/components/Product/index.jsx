@@ -6,7 +6,7 @@ import { add } from '../../actions/index';
 
 function Product({itemId, item, lastUpdate}) {
 
-    const cartItems = useSelector(state => state.cartReducer);
+    const cartItems = useSelector(state => state);
     const dispatch = useDispatch();
 
     const {name, description, cost} = item;

@@ -33,16 +33,5 @@ function remove(id) {
     }
 }
 
-function login() {
-    return {
-        type: "LOGIN"
-    }
-}
 
-function logout() {
-    return {
-        type: "LOGOUT"
-    }
-}
-
-export {add, empty, increase, decrease, remove, login, logout}
+export {add, empty, increase, decrease, remove}

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function CartItem({id, image, name, currentPrice, amount}) {
 
-    const cartItems = useSelector(state => state.cartReducer);
+    const cartItems = useSelector(state => state);
     const dispatch = useDispatch();
 
     useEffect(() => {

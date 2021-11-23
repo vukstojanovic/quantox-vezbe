@@ -3,15 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
-import { combineReducers, createStore } from 'redux';
+import { createStore } from 'redux';
 import cartReducer from './reducers/cartReducer';
-import loginReducer from './reducers/loginReducer';
 
-const allReducers = combineReducers({
-  cartReducer: cartReducer,
-  loginReducer: loginReducer
-});
-const store = createStore(allReducers);
+const store = createStore(cartReducer);
 
 ReactDOM.render(
   <React.StrictMode>

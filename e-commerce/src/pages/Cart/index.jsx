@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import CartItem from '../../components/CartItem/index';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { empty, logout } from '../../actions/index';
+import { empty } from '../../actions/index';
 import axios from 'axios';
 
 function Cart() {
 
-    const cartItems = useSelector(state => state.cartReducer);
+    const cartItems = useSelector(state => state);
     const dispatch = useDispatch();
     const [total, setTotal] = useState(0);
 
@@ -32,7 +32,7 @@ function Cart() {
         )
     }
 
-    function sendOrder() {
+    async function postPurchases() {
 
         let body = {
             "products": cartItems
@@ -40,18 +40,43 @@ function Cart() {
 
         let accessToken = localStorage.accessToken;
 
+        try {
+            let response = await axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}});
+            return response;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    async function postToken() {
+
+        let refreshToken = localStorage.refreshToken;
+        let token = {
+            "token": refreshToken
+        };
+
+        try {
+            let response = axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}});
+            return response;
+        } catch (err) {
+            console.log("server down probably");
+        }
+    }
+
+    function sendOrder() {
+
+        let body = {
+            "products": cartItems
+        }
+
+        let accessToken = localStorage.accessToken;
         axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
         .then(response => {
             console.log("Order sent");
         })
         .catch(err => {
             console.log("error happened");
-            let refreshToken = localStorage.refreshToken;
-            let token = {
-                "token": refreshToken
-            };
-
-            axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}})
+            postToken()
             .then(res => {
                 console.log("refreshed");
                 localStorage.setItem("accessToken", res.data.accessToken);
@@ -61,8 +86,9 @@ function Cart() {
                     console.log("order sent")
                 })
                 .catch(err => {
-                    dispatch(logout());
-                    localStorage.clear();
+                    console.log("another error");
+                    window.localStorage.clear();
+                    // dispatch(logout());
                 })
             });
         })

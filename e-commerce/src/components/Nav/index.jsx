@@ -1,19 +1,17 @@
 
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../actions/index';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 function Nav() {
 
-    const cartItems = useSelector(state => state.cartReducer);
-    const isLogged = useSelector(state => state.loginReducer);
-    const dispatch = useDispatch();
+    const cartItems = useSelector(state => state);
+    console.log(cartItems);
+    const isLogged = localStorage.accessToken;
 
     function handleLogout() {
         axios.delete("http://localhost:4000/logout", localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}});
         localStorage.clear();
-        dispatch(logout());
     }
 
     return (
