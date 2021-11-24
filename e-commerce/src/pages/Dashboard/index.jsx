@@ -40,7 +40,6 @@ function Dashboard() {
                     setIsLoading(false);
                 })
                 .catch(err => {
-                    // localStorage.clear();
                     console.log(err);
                     console.log("final dashboard error");
                     localStorage.removeItem("accessToken");
