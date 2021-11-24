@@ -45,14 +45,21 @@ function Nav() {
                 </Link>
                     <li className={isLogged ? "" : "js-hidden"} onClick={handleLogout}>Logout</li>
             </ul>
-            <Link to="/cart">
-                <div className="cart-container">
-                    <div className="cart-icon">
-                        <i className="fas fa-shopping-cart"></i>
-                        <div className={cartItems.length > 0 && isLogged ? "red-circle" : "red-circle js-hidden"}><span>{cartItems.length}</span></div>
-                    </div>
+            <div className="right-side">
+                <div className="languages">
+                        <span>Srpski</span> | <span>English</span>
                 </div>
-            </Link>
+                <Link to="/cart">
+                    <div className="cart-container">
+                        <div className="cart-icon">
+                            <i className="fas fa-shopping-cart"></i>
+                            <div className={cartItems.length > 0 && isLogged ? "red-circle" : "red-circle js-hidden"}>
+                                <span>{cartItems.length}</span>
+                            </div>
+                        </div>
+                    </div>
+                </Link>
+            </div>
         </nav>
     )
 

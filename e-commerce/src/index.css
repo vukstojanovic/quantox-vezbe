@@ -24,7 +24,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   background-color: rgb(69, 113, 131);
-  min-height: 8vh;
+  min-height: 75px;
   position: fixed;
   top: 0;
   left: 0;
@@ -57,7 +57,6 @@ nav ul li {
 }
 
 .red-circle {
-  /* padding: 15px; */
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -76,6 +75,23 @@ nav ul li {
   left: 50%;
   transform: translate(-55% , -55%);
   font-weight: bold;
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.languages {
+  margin-right: 30px;
+  /* position: absolute;
+  top: 0;
+  right: 10%; */
+  color: white;
+}
+
+.languages span {
+  cursor: pointer;
 }
 
 main {

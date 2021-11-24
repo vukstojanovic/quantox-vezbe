@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -13,7 +13,9 @@ const store = createStore(combineReducers({cartReducer: cartReducer, loginReduce
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      {/* <Suspense fallback={<h1>Loading...</h1>}> */}
+        <App />
+      {/* </Suspense> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
