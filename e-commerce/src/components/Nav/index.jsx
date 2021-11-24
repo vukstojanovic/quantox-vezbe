@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/loginActions';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function Nav() {
 
     const cartItems = useSelector(state => state.cartReducer);
     const isLogged = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
+    const {t, i18n} = useTranslation();
+
+    console.log(i18n);
+
 
     console.log("isLogged is:" + isLogged + "!!!!!");
     
@@ -25,29 +30,33 @@ function Nav() {
         dispatch(logout());
     };
 
+    function handleChangeLanguage(language) {
+        i18n.changeLanguage(language);
+    }
+
     return (
         <nav>
             <ul>
                 <Link to="/">
-                    <li>Home</li>
+                    <li>{t("Home")}</li>
                 </Link>
                 <Link to="/products">
-                    <li>Our Products</li>
+                    <li>{t("Our Products")}</li>
                 </Link>
                 <Link to="/dashboard">
-                    <li>Dashboard</li>
+                    <li>{t("Dashboard")}</li>
                 </Link>
                 <Link to="/signup">
-                    <li className={isLogged ? "js-hidden" : ""}>Sign Up</li>
+                    <li className={isLogged ? "js-hidden" : ""}>{t("Sign Up")}</li>
                 </Link>
                 <Link to="/login">
-                    <li className={isLogged ? "js-hidden" : ""}>Login</li>
+                    <li className={isLogged ? "js-hidden" : ""}>{t("Login")}</li>
                 </Link>
-                    <li className={isLogged ? "" : "js-hidden"} onClick={handleLogout}>Logout</li>
+                    <li className={isLogged ? "" : "js-hidden"} onClick={handleLogout}>{t("Logout")}</li>
             </ul>
             <div className="right-side">
                 <div className="languages">
-                        <span>Srpski</span> | <span>English</span>
+                        <span onClick={() => handleChangeLanguage("sr")}>Srpski</span> | <span onClick={() => handleChangeLanguage("en")}>English</span>
                 </div>
                 <Link to="/cart">
                     <div className="cart-container">

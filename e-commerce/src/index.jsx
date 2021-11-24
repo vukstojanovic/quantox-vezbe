@@ -7,15 +7,16 @@ import { createStore } from 'redux';
 import cartReducer from './reducers/cartReducer';
 import loginReducer from './reducers/loginReducer';
 import { combineReducers } from 'redux';
+import './i18n.js';
 
 const store = createStore(combineReducers({cartReducer: cartReducer, loginReducer: loginReducer}));
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <Suspense fallback={<h1>Loading...</h1>}> */}
+      <Suspense fallback={<h1>Loading...</h1>}>
         <App />
-      {/* </Suspense> */}
+      </Suspense>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
