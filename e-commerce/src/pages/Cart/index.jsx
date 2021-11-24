@@ -40,7 +40,7 @@ function Cart() {
         }
 
         let accessToken = localStorage.accessToken;
-        axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+        axios.post(`${process.env.REACT_APP_API}/purchases`, JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
         .then(response => {
             console.log("Order sent");
             dispatch(empty());
@@ -51,12 +51,12 @@ function Cart() {
             let token = {
                 "token": refreshToken
             };
-            axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}})
+            axios.post(`${process.env.REACT_APP_AUTH_API}/token`, token, {headers: {"Content-Type" : "application/json"}})
             .then(res => {
                 console.log("refreshed");
                 localStorage.setItem("accessToken", res.data.accessToken);
                 accessToken = res.data.accessToken;
-                axios.post("http://localhost:3001/purchases", JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+                axios.post(`${process.env.REACT_APP_API}/purchases`, JSON.stringify(body), {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
                 .then(newResponse => {
                     console.log("order sent");
                     dispatch(empty());

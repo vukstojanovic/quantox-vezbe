@@ -14,7 +14,7 @@ function Dashboard() {
     useEffect(() => {
         setIsLoading(true);
         let accessToken = localStorage.accessToken;
-        axios.get("http://localhost:3001/purchases", {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+        axios.get(`${process.env.REACT_APP_API}/purchases`, {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
         .then(response => {
             console.log(response.data);
             setShoppingHistory(response.data);
@@ -26,13 +26,13 @@ function Dashboard() {
             let token = {
                 "token": refreshToken
             };
-            axios.post("http://localhost:4000/token", token, {headers: {"Content-Type" : "application/json"}})
+            axios.post(`${process.env.REACT_APP_AUTH_API}/token`, token, {headers: {"Content-Type" : "application/json"}})
             .then(res => {
                 console.log("refreshed dashboard");
                 localStorage.setItem("accessToken", res.data.accessToken);
                 accessToken = res.data.accessToken;
                 console.log(accessToken);
-                axios.get("http://localhost:3001/purchases", {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
+                axios.get(`${process.env.REACT_APP_API}/purchases`, {headers: {"authorization": `Bearer ${accessToken}`, "Content-Type" : "application/json"}})
                 .then(obj => {
                     console.log("renewed dashboard");
                     console.log(obj.data);

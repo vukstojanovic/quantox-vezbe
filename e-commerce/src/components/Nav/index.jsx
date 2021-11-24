@@ -9,12 +9,17 @@ function Nav() {
     const cartItems = useSelector(state => state.cartReducer);
     const isLogged = useSelector(state => state.loginReducer);
     const dispatch = useDispatch();
-    // const isLogged = localStorage.accessToken;
 
     console.log("isLogged is:" + isLogged + "!!!!!");
     
     function handleLogout() {
-        axios.delete("http://localhost:4000/logout", localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}});
+        axios.delete(`${process.env.REACT_APP_AUTH_API}/logout`, localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}})
+        .then(result => {
+            console.log(result, "deleted token");
+        })
+        .catch(err => {
+            console.log("problem deleting token");
+        })
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         dispatch(logout());

@@ -22,7 +22,7 @@ function Login() {
 
             console.log(body);
 
-            axios.post('http://localhost:4000/login', JSON.stringify(body), {headers:{"Content-Type" : "application/json"}})
+            axios.post(`${process.env.REACT_APP_AUTH_API}/login`, JSON.stringify(body), {headers:{"Content-Type" : "application/json"}})
             .then(response => {
                 console.log(response);
                 if (response.data.accessToken && response.data.refreshToken) {

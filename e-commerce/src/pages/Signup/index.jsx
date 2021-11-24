@@ -16,7 +16,7 @@ function Signup() {
                 "password": password
             };
 
-            axios.post('http://localhost:3001/users', JSON.stringify(body), {headers:{"Content-Type" : "application/json"}})
+            axios.post(`${process.env.REACT_APP_API}/users`, JSON.stringify(body), {headers:{"Content-Type" : "application/json"}})
             .then(response => {
                 console.log(response);
                 navigate('/login');
