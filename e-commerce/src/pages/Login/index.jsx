@@ -22,8 +22,6 @@ function Login() {
                 "password": password
             };
 
-            console.log(body);
-
             axios.post(`${process.env.REACT_APP_AUTH_API}/login`, JSON.stringify(body), {headers:{"Content-Type" : "application/json"}})
             .then(response => {
                 console.log(response);
