@@ -11,7 +11,7 @@ function Dashboard() {
     const [shoppingHistory, setShoppingHistory] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     useEffect(() => {
         setIsLoading(true);

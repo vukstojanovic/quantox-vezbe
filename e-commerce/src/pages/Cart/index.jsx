@@ -12,7 +12,7 @@ function Cart() {
     const cartItems = useSelector(state => state.cartReducer);
     const dispatch = useDispatch();
     const [total, setTotal] = useState(0);
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     useEffect(() => {
         let sum = 0;
