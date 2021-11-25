@@ -12,7 +12,7 @@ function Nav() {
     const dispatch = useDispatch();
     const {t, i18n} = useTranslation();
 
-    console.log(i18n);
+    // console.log(i18n);
 
 
     console.log("isLogged is:" + isLogged + "!!!!!");
@@ -38,21 +38,21 @@ function Nav() {
         <nav>
             <ul>
                 <Link to="/">
-                    <li>{t("Home")}</li>
+                    <li>{t("nav.home")}</li>
                 </Link>
                 <Link to="/products">
-                    <li>{t("Our Products")}</li>
+                    <li>{t("nav.our_products")}</li>
                 </Link>
                 <Link to="/dashboard">
-                    <li>{t("Dashboard")}</li>
+                    <li>{t("nav.dashboard")}</li>
                 </Link>
                 <Link to="/signup">
-                    <li className={isLogged ? "js-hidden" : ""}>{t("Sign Up")}</li>
+                    <li className={isLogged ? "js-hidden" : ""}>{t("nav.sign_up_link")}</li>
                 </Link>
                 <Link to="/login">
-                    <li className={isLogged ? "js-hidden" : ""}>{t("Login")}</li>
+                    <li className={isLogged ? "js-hidden" : ""}>{t("nav.login_link")}</li>
                 </Link>
-                    <li className={isLogged ? "" : "js-hidden"} onClick={handleLogout}>{t("Logout")}</li>
+                    <li className={isLogged ? "" : "js-hidden"} onClick={handleLogout}>{t("nav.logout_link")}</li>
             </ul>
             <div className="right-side">
                 <div className="languages">

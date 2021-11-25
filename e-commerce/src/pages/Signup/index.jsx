@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useNavigate }  from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function Signup() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     let navigate = useNavigate();
+    const {t} = useTranslation();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -32,17 +34,17 @@ function Signup() {
     return (
         <div className="form-container">
             <form action="">
-                <h3>Sign Up Form</h3>
+                <h3>{t("sign_up.sign_up_form")}</h3>
                 <div className="username-container">
-                    <label htmlFor="username">Username: </label>
+                    <label htmlFor="username">{t("sign_up.username")}: </label>
                     <input type="text" onChange={(e) => setUsername(e.target.value)} />
                 </div>
                 <div className="password-container">
-                    <label htmlFor="password">Password: </label>
+                    <label htmlFor="password">{t("sign_up.password")}: </label>
                     <input type="password" onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <button className="form-btn" onClick={handleSubmit}>
-                    Sign Up
+                    {t("sign_up.sign_up_btn")}
                 </button>
             </form>
         </div>

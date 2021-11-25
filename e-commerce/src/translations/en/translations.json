@@ -1,0 +1,50 @@
+
+{
+    
+    "home": {
+        "welcome": "Welcome to Fortnite E-commerce store. Checkout list of our products and equip your hero with newest epic gear."
+    },
+
+    "nav": {
+        "home": "Home",
+        "our_products": "Our Products",
+        "dashboard": "Dashboard",
+        "login_link": "Login",
+        "logout_link": "Logout",
+        "sign_up_link": "Sign Up"
+    },
+
+    "cart": {
+        "heading": "Your Shopping Cart",
+        "item_types": "Item Types",
+        "total_number": "Total Number",
+        "remove": "Remove",
+        "subtotal": "Subtotal",
+        "empty_cart": "Empty Cart",
+        "buy": "Buy",
+        "empty_message": "Your shopping cart is empty.",
+        "empty_message_link": "Go back and pick some products."
+    },
+
+    "dashboard": {
+        "order_id": "Order id",
+        "order_date": "Order date",
+        "product_names": "Product names",
+        "product_amount": "Product amount"
+    },
+
+    "sign_up": {
+        "sign_up_form": "Sign Up Form",
+        "username": "Username",
+        "password": "Password",
+        "sign_up_btn": "Sign Up"
+    },
+
+    "login": {
+        "login_form": "Login Form",
+        "username": "Username",
+        "password": "Password",
+        "login_btn": "Login"
+    }
+
+}

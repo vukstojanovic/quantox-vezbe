@@ -4,6 +4,7 @@ import { useNavigate }  from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { login } from '../../actions/loginActions';
+import { useTranslation } from 'react-i18next';
 
 function Login() {
     
@@ -11,6 +12,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     let navigate = useNavigate();
+    const {t} = useTranslation();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -45,17 +47,17 @@ function Login() {
     return (
         <div className="form-container">
             <form action="">
-                <h3>Login Form</h3>
+                <h3>{t("login.login_form")}</h3>
                 <div className="username-container">
-                    <label htmlFor="username">Username: </label>
+                    <label htmlFor="username">{t("login.username")}: </label>
                     <input type="text" onChange={(e) => setUsername(e.target.value)} />
                 </div>
                 <div className="password-container">
-                    <label htmlFor="password">Password: </label>
+                    <label htmlFor="password">{t("login.password")}: </label>
                     <input type="password" onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <button className="form-btn" onClick={handleSubmit}>
-                    Login
+                    {t("login.login_btn")}
                 </button>
             </form>
         </div>

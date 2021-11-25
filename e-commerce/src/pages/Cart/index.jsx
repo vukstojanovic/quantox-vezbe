@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { empty } from '../../actions/cartActions';
 import { logout } from '../../actions/loginActions';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 function Cart() {
 
     const cartItems = useSelector(state => state.cartReducer);
     const dispatch = useDispatch();
     const [total, setTotal] = useState(0);
+    const {t, i18n} = useTranslation();
 
     useEffect(() => {
         let sum = 0;
@@ -26,8 +28,8 @@ function Cart() {
         return (
             <div className="empty-cart">
                 <h2>
-                    Your cart is currently empty. <br/>
-                    <Link to="/products">Go back and pick some products.</Link>
+                    {t("cart.empty_message")}<br/>
+                    <Link to="/products">{t("cart.empty_message_link")}</Link>
                 </h2>
             </div>
         )
@@ -74,8 +76,8 @@ function Cart() {
 
     return (
         <div className="cart">
-            <h2>Your shopping cart</h2>
-            <p>Item types: {cartItems.length}, Total number: {cartItems.map(item => item.amount).reduce((prev, next) => prev + next)}</p>
+            <h2>{t("cart.heading")}</h2>
+            <p>{t("cart.item_types")}: {cartItems.length}, {t("cart.total_number")}: {cartItems.map(item => item.amount).reduce((prev, next) => prev + next)}</p>
             <div className="cart-products">
                 {cartItems.map(item => {
                     const {id} = item;
@@ -88,10 +90,10 @@ function Cart() {
                 })}
             </div>
             <div className="bottom-cart">
-                <div className="total">Subtotal: {total} $</div>
+                <div className="total">{t("cart.subtotal")}: {total} $</div>
                 <div className="buttons">
-                    <button className="empty" onClick={() => dispatch(empty())}>empty cart</button>
-                    <button className="checkout" onClick={sendOrder}>buy</button>
+                    <button className="empty" onClick={() => dispatch(empty())}>{t("cart.empty_cart")}</button>
+                    <button className="checkout" onClick={sendOrder}>{t("cart.buy")}</button>
                 </div>
             </div>
         </div>

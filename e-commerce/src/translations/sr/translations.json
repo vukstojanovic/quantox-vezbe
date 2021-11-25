@@ -1,0 +1,50 @@
+
+{
+
+    "home": {
+        "welcome": "Dobrodošli u Fortnite E-commerce radnju. Pogledajte listu naših proizvoda i opremite svog heroja najnovijim epskim oruđem."
+    },
+
+    "nav": {
+        "home": "početna strana",
+        "our_products": "naši proizvodi",
+        "dashboard": "komandna tabla",
+        "login_link": "ulogujte se",
+        "logout_link": "izlogujte se",
+        "sign_up_link": "napravite nalog"
+    },
+
+    "cart": {
+        "heading": "vasa korpa za kupovinu",
+        "item_types": "vrste proizvoda",
+        "total_number": "ukupan broj",
+        "remove": "ukloni",
+        "subtotal": "ukupno",
+        "empty_cart": "isprazni kolica",
+        "buy": "kupi",
+        "empty_message": "vasa kolica su trenutno prazna,",
+        "empty_message_link": "vratite se i odaberite neke proizvode."
+    },
+
+    "dashboard": {
+        "order_id": "id porudzbine",
+        "order_date": "datum porudzbine",
+        "product_names": "naziv proizvoda",
+        "product_amount": "količina proizvoda"
+    },
+
+    "sign_up": {
+        "sign_up_form": "Sign Up Forma",
+        "username": "korisnicko ime",
+        "password": "lozinka",
+        "sign_up_btn": "napravite nalog"
+    },
+
+    "login": {
+        "login_form": "login forma",
+        "username": "korisnicko ime",
+        "password": "lozinka",
+        "login_btn": "ulogujte se"
+    }
+
+}

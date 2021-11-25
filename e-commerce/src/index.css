@@ -30,11 +30,13 @@ nav {
   left: 0;
   right: 0;
   box-shadow: 0px 5px 25px rgb(94, 93, 93);
+  text-transform: capitalize;
 }
 
 nav ul {
   display: flex;
   list-style-type: none;
+  min-width: 700px;
 }
 
 nav ul li {
@@ -176,11 +178,13 @@ main {
   margin-bottom: 40px;
   margin-top: 30px;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .cart p {
   font-weight: bold;
   margin-bottom: 20px;
+  text-transform: capitalize;
 }
 
 .cart-products {
@@ -244,6 +248,7 @@ main {
 .total {
   font-size: 20px;
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .checkout {
@@ -261,6 +266,10 @@ main {
 .empty-cart {
   text-align: center;
   margin-top: 5vh;
+}
+
+.empty-cart::first-letter {
+  text-transform: capitalize;
 }
 
 .product-details {
@@ -298,6 +307,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-transform: capitalize;
 }
 
 .form-container h3 {
@@ -339,6 +349,7 @@ main {
   width: 100%;
   cursor: pointer;
   margin-top: 15px;
+  text-transform: capitalize;
 }
 
 .js-hidden {

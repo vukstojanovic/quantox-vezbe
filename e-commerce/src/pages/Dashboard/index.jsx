@@ -4,12 +4,14 @@ import axios from 'axios';
 import React from "react";
 import { logout } from "../../actions/loginActions";
 import { useDispatch } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 function Dashboard() {
 
     const [shoppingHistory, setShoppingHistory] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
+    const {t, i18n} = useTranslation();
 
     useEffect(() => {
         setIsLoading(true);
@@ -57,10 +59,10 @@ function Dashboard() {
     return (
         <div className="dashboard">
             <div className="dashboard-table">
-                <div className="header">Order id</div>
-                <div className="header">Order date</div>
-                <div className="header">Product names</div>
-                <div className="header">Product amounts</div>
+                <div className="header">{t("dashboard.order_id")}</div>
+                <div className="header">{t("dashboard.order_date")}</div>
+                <div className="header">{t("dashboard.product_names")}</div>
+                <div className="header">{t("dashboard.product_amount")}</div>
                 {shoppingHistory.map(object => {
                     const {createdAt, id, products} = object;
                     return (
