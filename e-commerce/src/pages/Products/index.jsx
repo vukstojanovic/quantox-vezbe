@@ -22,7 +22,7 @@ function Products() {
 
     useEffect(() => {
         if (!isLoading) {
-            const items = [...data.slice(168, 187), ...data.slice(302, 334), ...data.slice(342, 348), ...data.slice(522, 541), ...data.slice(605, 616),  ...data.slice(685, 703), ...data.slice(1100, 1135), ...data.slice(1138, 1213)];
+            const items = [...data.slice(170, 187), ...data.slice(302, 334), ...data.slice(342, 348), ...data.slice(522, 541), ...data.slice(605, 616),  ...data.slice(685, 703), ...data.slice(1100, 1135), ...data.slice(1138, 1213)];
             setChosenItems(items);
             // console.log(items);
             console.log(...data.slice(1090, 1128));
