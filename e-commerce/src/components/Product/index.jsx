@@ -31,7 +31,7 @@ function Product({itemId, item, lastUpdate}) {
                 <span className="name">{name}</span>
                 <span className="price">{currentPrice}$</span>
             </div>
-            <div className="description">{description}</div>
+            <div className="description">{description ? description : "N/A"}</div>
             <div className="basket">
                 <i className="fas fa-cart-plus" onClick={() => dispatch(add(cartObject))} ></i>
             </div>

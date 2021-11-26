@@ -38,7 +38,7 @@ function ProductDetails() {
                 <div className="text-details">
                     <p><span>Name:</span> <br/> {name}</p>
                     <p><span>Price:</span> <br/> {currentPrice}$</p>
-                    <p><span>Description:</span> <br/> {description}</p>
+                    <p><span>Description:</span> <br/> {description ? description : "N/A"}</p>
                     <p><span>Rarity:</span> <br/> {rarity}</p>
                     <p><span>Series:</span> <br/> {series ? series : "N/A"}</p>
                     <div className="basket">

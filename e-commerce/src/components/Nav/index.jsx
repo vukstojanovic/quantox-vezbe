@@ -14,7 +14,6 @@ function Nav() {
 
     // console.log(i18n);
 
-
     console.log("isLogged is:" + isLogged + "!!!!!");
     
     function handleLogout() {
