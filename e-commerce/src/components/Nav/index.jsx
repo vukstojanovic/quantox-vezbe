@@ -7,8 +7,8 @@ import { useTranslation } from 'react-i18next';
 
 function Nav() {
 
-    const cartItems = useSelector(state => state.cartReducer);
-    const isLogged = useSelector(state => state.loginReducer);
+    const cartItems = useSelector((state) => state.cartReducer);
+    const isLogged = useSelector((state) => state.loginReducer);
     const dispatch = useDispatch();
     const {t, i18n} = useTranslation();
 
@@ -17,16 +17,16 @@ function Nav() {
     console.log("isLogged is:" + isLogged + "!!!!!");
     
     function handleLogout() {
-        axios.delete(`${process.env.REACT_APP_AUTH_API}/logout`, localStorage.refreshToken, {headers:{"Content-Type" : "application/json"}})
+        axios.delete(`${process.env.REACT_APP_AUTH_API}/logout`, localStorage.refreshToken, {headers: {"Content-Type" : "application/json"}})
         .then(result => {
             console.log(result, "deleted token");
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
+            dispatch(logout());
         })
         .catch(err => {
             console.log("problem deleting token");
         })
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        dispatch(logout());
     };
 
     function handleChangeLanguage(language) {

@@ -6,7 +6,7 @@ import { add } from '../../actions/cartActions';
 
 function ProductDetails() {
 
-    const cartItems = useSelector(state => state.cartReducer);
+    const cartItems = useSelector((state) => state.cartReducer);
     const dispatch = useDispatch();
     const {id} = useParams();
     const specificProductApi = `https://fortnite-api.theapinetwork.com/item/get?id=${id}`;

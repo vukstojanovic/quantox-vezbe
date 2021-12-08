@@ -1,12 +1,18 @@
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { add } from '../../actions/cartActions';
 
-function Product({itemId, item, lastUpdate}) {
+interface ProductProps{
+    itemId: string,
+    item: any,
+    lastUpdate: number
+}
 
-    const cartItems = useSelector(state => state.cartReducer);
+const Product: React.FC<ProductProps> = ({itemId, item, lastUpdate}) => {
+
+    const cartItems = useSelector((state: RootStateOrAny) => state.cartReducer);
     const dispatch = useDispatch();
 
     const {name, description, cost} = item;
