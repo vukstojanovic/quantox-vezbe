@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CartItem from '../../components/CartItem/index';
 import { Link } from 'react-router-dom';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
