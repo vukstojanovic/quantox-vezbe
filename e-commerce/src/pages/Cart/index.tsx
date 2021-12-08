@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CartItem from '../../components/CartItem/index';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { empty } from '../../actions/cartActions';
 import { logout } from '../../actions/loginActions';
 import axios from 'axios';
@@ -9,7 +9,15 @@ import { useTranslation } from 'react-i18next';
 
 function Cart() {
 
-    const cartItems = useSelector(state => state.cartReducer);
+    interface CartItemsProps {
+        id: string,
+        image: string,
+        name: string,
+        currentPrice: number,
+        amount: number
+    }
+
+    const cartItems: CartItemsProps[] = useSelector((state: RootStateOrAny) => state.cartReducer);
     const dispatch = useDispatch();
     const [total, setTotal] = useState(0);
     const {t} = useTranslation();

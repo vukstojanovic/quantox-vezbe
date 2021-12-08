@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate }  from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ function Login() {
     let navigate = useNavigate();
     const {t} = useTranslation();
 
-    function handleSubmit(e) {
+    function handleSubmit(e: React.FormEvent<HTMLButtonElement>) {
         e.preventDefault();
         if (username && password) {
             let body = {
