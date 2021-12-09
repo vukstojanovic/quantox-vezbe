@@ -16,6 +16,7 @@ function Cart() {
         currentPrice: number,
         amount: number
     }
+    
 
     const cartItems: CartItemsProps[] = useSelector((state: RootStateOrAny) => state.cartReducer);
     const dispatch = useDispatch();
