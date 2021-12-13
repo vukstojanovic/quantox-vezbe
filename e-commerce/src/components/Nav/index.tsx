@@ -1,14 +1,14 @@
 
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/loginActions';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 
 function Nav() {
 
-    const cartItems = useSelector((state) => state.cartReducer);
-    const isLogged = useSelector((state) => state.loginReducer);
+    const cartItems = useSelector((state: RootStateOrAny) => state.cartReducer);
+    const isLogged = useSelector((state: RootStateOrAny) => state.loginReducer);
     const dispatch = useDispatch();
     const {t, i18n} = useTranslation();
 
@@ -17,7 +17,8 @@ function Nav() {
     console.log("isLogged is:" + isLogged + "!!!!!");
     
     function handleLogout() {
-        axios.delete(`${process.env.REACT_APP_AUTH_API}/logout`, localStorage.refreshToken, {headers: {"Content-Type" : "application/json"}})
+        // obrisan treci parametar u axios.delete {headers: {"Content-Type" : "application/json"}} !!!!
+        axios.delete(`${process.env.REACT_APP_AUTH_API}/logout`, localStorage.refreshToken)
         .then(result => {
             console.log(result, "deleted token");
             localStorage.removeItem("accessToken");
@@ -29,7 +30,7 @@ function Nav() {
         })
     };
 
-    function handleChangeLanguage(language) {
+    function handleChangeLanguage(language: string) {
         i18n.changeLanguage(language);
     }
 

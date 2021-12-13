@@ -6,7 +6,14 @@ import { add } from '../../actions/cartActions';
 
 interface ProductProps{
     itemId: string,
-    item: any,
+    item: {
+        name: string,
+        description: string,
+        cost: number,
+        images: {
+            icon: string
+        }
+    },
     lastUpdate: number
 }
 

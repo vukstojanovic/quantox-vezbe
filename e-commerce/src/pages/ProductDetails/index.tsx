@@ -1,17 +1,18 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import useFetch from '../../hooks/useFetch';
 import { add } from '../../actions/cartActions';
+import { ObjParams } from './../Products/index';
 
 function ProductDetails() {
 
-    const cartItems = useSelector((state) => state.cartReducer);
+    const cartItems = useSelector((state: RootStateOrAny) => state.cartReducer);
     const dispatch = useDispatch();
     const {id} = useParams();
     const specificProductApi = `https://fortnite-api.theapinetwork.com/item/get?id=${id}`;
 
-    const {data, isLoading} = useFetch(specificProductApi);
+    const {data, isLoading}: {data: ObjParams, isLoading: boolean} = useFetch(specificProductApi);
 
     useEffect(() => {
         if (!isLoading) {

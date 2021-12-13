@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 
 
-function useFetch(url) {
+function useFetch(url: string) {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    async function fetchData(api) {
+    async function fetchData(api: string) {
         try {
             const dataList = await fetch(api);
             const result = await dataList.json();

@@ -4,10 +4,25 @@ import Product from '../../components/Product/index';
 import useFetch from '../../hooks/useFetch';
 import { useSearchParams } from 'react-router-dom';
 
+export type ObjParams = {
+    item: {
+        name: string,
+        description: string,
+        cost: number,
+        rarity: string,
+        series: string,
+        images: {
+            icon: string
+        }
+    },
+    itemId: string,
+    lastUpdate: number
+}
+
 function Products() {
 
     const {data, isLoading} = useFetch("https://fortnite-api.theapinetwork.com/items/list");
-    const [chosenItems, setChosenItems] = useState([]);
+    const [chosenItems, setChosenItems] = useState<any[]>([]);
     const [inputValue, setInputValue] = useState("");
     const [searchParams, setSearchParams] = useSearchParams({});
 
@@ -43,13 +58,13 @@ function Products() {
             </div>
             <div className="grid-container">
                 {chosenItems
-                .filter(obj => {
+                .filter((obj: ObjParams) => {
                     if (searchParams.get("search")) {
                         return obj.item.name.toLowerCase().includes(searchParams.get("search"));
                     }
                     return obj;
                 })
-                .map(obj => {
+                .map((obj: ObjParams) => {
                     return (
                         <Product 
                             key={obj.itemId}

@@ -1,12 +1,20 @@
 
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { increase, decrease, remove } from '../../actions/cartActions';
 import { Link } from 'react-router-dom';
 
-function CartItem({id, image, name, currentPrice, amount}) {
+type CartItemProps = {
+    id: string,
+    image: string,
+    name: string,
+    currentPrice: number,
+    amount: number
+}
 
-    const cartItems = useSelector(state => state.cartReducer);
+const CartItem: React.FC<CartItemProps> = ({id, image, name, currentPrice, amount}) => {
+
+    const cartItems = useSelector((state: RootStateOrAny) => state.cartReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {

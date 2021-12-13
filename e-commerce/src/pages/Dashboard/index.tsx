@@ -8,6 +8,18 @@ import { useTranslation } from 'react-i18next';
 
 function Dashboard() {
 
+    interface productsProps {
+        id: string,
+        name: string,
+        amount: number
+    }
+
+    interface objectProps {
+        createdAt: string,
+        id: string,
+        products: productsProps[]
+    }
+
     const [shoppingHistory, setShoppingHistory] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
@@ -64,11 +76,6 @@ function Dashboard() {
                 <div className="header">{t("dashboard.product_names")}</div>
                 <div className="header">{t("dashboard.product_amount")}</div>
                 {shoppingHistory.map(object => {
-                    interface objectProps {
-                        createdAt: string,
-                        id: string,
-                        products: any[]
-                    }
                     const {createdAt, id, products}: objectProps = object;
                     return (
                         <React.Fragment key={id}>
